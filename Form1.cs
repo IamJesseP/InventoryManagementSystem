@@ -83,5 +83,10 @@ namespace JessePerez
             int Index = dgvParts.CurrentCell.RowIndex;
 
         }
+
+        private void dgvParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

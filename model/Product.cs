@@ -19,13 +19,13 @@ namespace JessePerez.model
         static Product()
         {
             products.Add(
-                new Product { Id = 0, Name = "Wheel", Inventory = 12, Price = 12 }
+                new Product { Id = 0, Name = "Bike", Inventory = 12, Price = 12 }
                 );
             products.Add(
-                new Product { Id = 1, Name = "Pedal", Inventory = 10, Price = 1 }
+                new Product { Id = 1, Name = "Car", Inventory = 10, Price = 1 }
                 );
             products.Add(
-                new Product { Id = 2, Name = "Chain", Inventory = 9, Price = 7 }
+                new Product { Id = 2, Name = "Toy", Inventory = 9, Price = 7 }
                 );
         }
 

@@ -19,13 +19,13 @@ namespace JessePerez.model
         static Part()
         {
             parts.Add(
-                new Part { Id = 0, Name = "Bike", Inventory = 12, Price = 12 }
+                new Part { Id = 0, Name = "Wheel", Inventory = 12, Price = 12 }
                 );
             parts.Add(
-                new Part { Id = 1, Name = "Car", Inventory = 10, Price = 10 }
+                new Part { Id = 1, Name = "Chain", Inventory = 10, Price = 10 }
                 );
             parts.Add(
-                new Part { Id = 2, Name = "Toy", Inventory = 9, Price = 7 }
+                new Part { Id = 2, Name = "Pedal", Inventory = 9, Price = 7 }
                 );
         }
 
