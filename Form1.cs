@@ -80,6 +80,8 @@ namespace JessePerez
 
             Part S = dgvParts.CurrentRow.DataBoundItem as Part;
 
+            S.
+
             int Index = dgvParts.CurrentCell.RowIndex;
 
         }

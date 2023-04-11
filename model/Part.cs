@@ -7,27 +7,27 @@ using System.Threading.Tasks;
 
 namespace JessePerez.model
 {
-    internal class Part
+    public abstract class Part
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Inventory { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
+        public int InStock { get; set; }
+        public int Min { get; set; }
+        public int Max { get; set; }
 
-        public static BindingList<Part> parts = new BindingList<Part>();
 
-        static Part()
+       public Part(int id, string name, decimal price, int inStock, int min, int max)
         {
-            parts.Add(
-                new Part { Id = 0, Name = "Wheel", Inventory = 12, Price = 12 }
-                );
-            parts.Add(
-                new Part { Id = 1, Name = "Chain", Inventory = 10, Price = 10 }
-                );
-            parts.Add(
-                new Part { Id = 2, Name = "Pedal", Inventory = 9, Price = 7 }
-                );
+            Id = id;
+            Name = name;
+            Price = price;
+            InStock = inStock;
+            Min = min;
+            Max = max;
         }
+
+        public Part() { }  
 
 
     }

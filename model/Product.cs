@@ -9,25 +9,26 @@ namespace JessePerez.model
 {
     public class Product
     {
+        public BindingList<Part> AssociatedParts = new BindingList<Part>();
         public int Id { get; set; }
         public string Name { get; set; }
-        public int Inventory { get; set; }
-        public int Price { get; set; }
+        public decimal Price { get; set; }
+        public int InStock { get; set; }
+        public int Min { get; set; }
+        public int Max { get; set; }
 
-        public static BindingList<Product> products = new BindingList<Product>();
-
-        static Product()
+        public Product(int id, string name, int instock, decimal price, int max, int min) 
         {
-            products.Add(
-                new Product { Id = 0, Name = "Bike", Inventory = 12, Price = 12 }
-                );
-            products.Add(
-                new Product { Id = 1, Name = "Car", Inventory = 10, Price = 1 }
-                );
-            products.Add(
-                new Product { Id = 2, Name = "Toy", Inventory = 9, Price = 7 }
-                );
+            Id = id;
+            Name = name;
+            InStock = instock;
+            Price = price;
+            Min = min;
+            Max = max;
         }
+
+        public Product() { }  
+
 
 
     }
