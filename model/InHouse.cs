@@ -6,7 +6,14 @@ using System.Threading.Tasks;
 
 namespace JessePerez.model
 {
-    internal class InHouse
+    public class InHouse : Part
     {
+        public int MachineID { get; set; }
+        public InHouse(int id, string name, decimal price, int instock, int min, int max, int machineID)
+            :base(id, name, price, instock, min, max)
+        {
+            MachineID = machineID;
+        }
+        public InHouse() { }
     }
 }

@@ -80,13 +80,17 @@ namespace JessePerez
 
             Part S = dgvParts.CurrentRow.DataBoundItem as Part;
 
-            S.
 
             int Index = dgvParts.CurrentCell.RowIndex;
 
         }
 
         private void dgvParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
         {
 
         }
