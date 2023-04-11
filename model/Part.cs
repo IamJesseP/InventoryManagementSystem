@@ -19,12 +19,12 @@ namespace JessePerez.model
 
        public Part(int id, string name, decimal price, int inStock, int min, int max)
         {
-            Id = id;
-            Name = name;
-            Price = price;
-            InStock = inStock;
-            Min = min;
-            Max = max;
+            this.Id = id;
+            this.Name = name;
+            this.Price = price;
+            this.InStock = inStock;
+            this.Min = min;
+            this.Max = max;
         }
 
         public Part() { }  

@@ -13,7 +13,7 @@ namespace JessePerez.model
         public Outsourced(int id, string name, decimal price, int instock, int min, int max, string companyName)
             : base(id, name, price, instock, min, max)
         {
-            CompanyName = companyName;
+            this.CompanyName = companyName;
         }
 
         public Outsourced() { }

@@ -12,7 +12,7 @@ namespace JessePerez.model
         public InHouse(int id, string name, decimal price, int instock, int min, int max, int machineID)
             :base(id, name, price, instock, min, max)
         {
-            MachineID = machineID;
+            this.MachineID = machineID;
         }
         public InHouse() { }
     }

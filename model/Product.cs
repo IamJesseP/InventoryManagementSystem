@@ -9,6 +9,8 @@ namespace JessePerez.model
 {
     public class Product
     {
+        //auto-implemented props
+
         public BindingList<Part> AssociatedParts = new BindingList<Part>();
         public int Id { get; set; }
         public string Name { get; set; }
@@ -17,14 +19,16 @@ namespace JessePerez.model
         public int Min { get; set; }
         public int Max { get; set; }
 
+
+
         public Product(int id, string name, int instock, decimal price, int max, int min) 
         {
-            Id = id;
-            Name = name;
-            InStock = instock;
-            Price = price;
-            Min = min;
-            Max = max;
+            this.Id = id;
+            this.Name = name;
+            this.InStock = instock;
+            this.Price = price;
+            this.Min = min;
+            this.Max = max;
         }
 
         public Product() { }  
