@@ -61,16 +61,6 @@ namespace JessePerez
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnModify_Click(object sender, EventArgs e)
         {
             if (!dgvParts.CurrentRow.Selected)
@@ -90,7 +80,52 @@ namespace JessePerez
 
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void btnDeletePart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddPart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchPart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxSearchPart_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDeleteProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModifyProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAddProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSearchProduct_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxSearchProduct_TextChanged(object sender, EventArgs e)
         {
 
         }

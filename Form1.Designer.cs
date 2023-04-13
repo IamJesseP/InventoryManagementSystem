@@ -162,7 +162,7 @@
             this.btnAddPart.TabIndex = 2;
             this.btnAddPart.Text = "Add";
             this.btnAddPart.UseVisualStyleBackColor = true;
-            this.btnAddPart.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddPart.Click += new System.EventHandler(this.btnAddPart_Click);
             // 
             // btnModifyPart
             // 
@@ -182,7 +182,7 @@
             this.btnDeletePart.TabIndex = 4;
             this.btnDeletePart.Text = "Delete";
             this.btnDeletePart.UseVisualStyleBackColor = true;
-            this.btnDeletePart.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnDeletePart.Click += new System.EventHandler(this.btnDeletePart_Click);
             // 
             // btnAddProduct
             // 
@@ -192,6 +192,7 @@
             this.btnAddProduct.TabIndex = 5;
             this.btnAddProduct.Text = "Add";
             this.btnAddProduct.UseVisualStyleBackColor = true;
+            this.btnAddProduct.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // btnModifyProduct
             // 
@@ -201,6 +202,7 @@
             this.btnModifyProduct.TabIndex = 6;
             this.btnModifyProduct.Text = "Modify";
             this.btnModifyProduct.UseVisualStyleBackColor = true;
+            this.btnModifyProduct.Click += new System.EventHandler(this.btnModifyProduct_Click);
             // 
             // btnDeleteProduct
             // 
@@ -210,6 +212,7 @@
             this.btnDeleteProduct.TabIndex = 7;
             this.btnDeleteProduct.Text = "Delete";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
+            this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
             // btnExit
             // 
@@ -219,7 +222,7 @@
             this.btnExit.TabIndex = 8;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = true;
-            this.btnExit.Click += new System.EventHandler(this.button4_Click);
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // btnSearchPart
             // 
@@ -229,6 +232,7 @@
             this.btnSearchPart.TabIndex = 9;
             this.btnSearchPart.Text = "Search";
             this.btnSearchPart.UseVisualStyleBackColor = true;
+            this.btnSearchPart.Click += new System.EventHandler(this.btnSearchPart_Click);
             // 
             // txtbxSearchPart
             // 
@@ -236,6 +240,7 @@
             this.txtbxSearchPart.Name = "txtbxSearchPart";
             this.txtbxSearchPart.Size = new System.Drawing.Size(140, 20);
             this.txtbxSearchPart.TabIndex = 10;
+            this.txtbxSearchPart.TextChanged += new System.EventHandler(this.txtbxSearchPart_TextChanged);
             // 
             // txtbxSearchProduct
             // 
@@ -243,6 +248,7 @@
             this.txtbxSearchProduct.Name = "txtbxSearchProduct";
             this.txtbxSearchProduct.Size = new System.Drawing.Size(140, 20);
             this.txtbxSearchProduct.TabIndex = 11;
+            this.txtbxSearchProduct.TextChanged += new System.EventHandler(this.txtbxSearchProduct_TextChanged);
             // 
             // btnSearchProduct
             // 
@@ -252,6 +258,7 @@
             this.btnSearchProduct.TabIndex = 12;
             this.btnSearchProduct.Text = "Search";
             this.btnSearchProduct.UseVisualStyleBackColor = true;
+            this.btnSearchProduct.Click += new System.EventHandler(this.btnSearchProduct_Click);
             // 
             // label1
             // 
