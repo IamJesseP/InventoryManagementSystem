@@ -77,6 +77,7 @@
             this.dgvParts.Size = new System.Drawing.Size(371, 303);
             this.dgvParts.TabIndex = 0;
             this.dgvParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParts_CellClick);
+            this.dgvParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParts_CellContentClick);
             this.dgvParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.myPartBindingComplete);
             // 
             // dgvProducts

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JessePerez.model;
+using JessePerez.view;
 
 namespace JessePerez
 {
@@ -60,7 +61,7 @@ namespace JessePerez
 
         private void dgvParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            int indexSelected = e.RowIndex;
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -97,7 +98,8 @@ namespace JessePerez
 
         private void btnAddPart_Click(object sender, EventArgs e)
         {
-
+            new AddPart().Show();
+            this.Hide();
         }
 
         private void btnSearchPart_Click(object sender, EventArgs e)
@@ -135,7 +137,8 @@ namespace JessePerez
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-
+            new AddProduct().Show();
+            this.Hide();
         }
 
         private void btnSearchProduct_Click(object sender, EventArgs e)
@@ -149,6 +152,11 @@ namespace JessePerez
         }
 
         private void btnModifyPart_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
