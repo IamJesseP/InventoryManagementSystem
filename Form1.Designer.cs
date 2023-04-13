@@ -77,7 +77,6 @@
             this.dgvParts.Size = new System.Drawing.Size(371, 303);
             this.dgvParts.TabIndex = 0;
             this.dgvParts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParts_CellClick);
-            this.dgvParts.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvParts_CellContentClick);
             this.dgvParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.myPartBindingComplete);
             // 
             // dgvProducts
@@ -115,7 +114,7 @@
             this.btnModifyPart.TabIndex = 3;
             this.btnModifyPart.Text = "Modify";
             this.btnModifyPart.UseVisualStyleBackColor = true;
-            this.btnModifyPart.Click += new System.EventHandler(this.btnModify_Click);
+            this.btnModifyPart.Click += new System.EventHandler(this.btnModifyPart_Click);
             // 
             // btnDeletePart
             // 

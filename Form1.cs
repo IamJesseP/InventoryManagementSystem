@@ -55,7 +55,7 @@ namespace JessePerez
         private void myProductBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             //clears selection upon init
-            dgvParts.ClearSelection();
+            dgvProducts.ClearSelection();
         }
 
         private void dgvParts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -65,9 +65,13 @@ namespace JessePerez
 
         private void btnModify_Click(object sender, EventArgs e)
         {
-            if (!dgvParts.CurrentRow.Selected)
+            if (dgvParts.CurrentRow == null || !dgvParts.CurrentRow.Selected)
             {
                 MessageBox.Show("Nothing is selected!");
+            }
+            else
+            {
+
             }
 
             Part S = dgvParts.CurrentRow.DataBoundItem as Part;
@@ -77,14 +81,18 @@ namespace JessePerez
 
         }
 
-        private void dgvParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
 
         private void btnDeletePart_Click(object sender, EventArgs e)
         {
-
+            if (dgvParts.CurrentRow == null || !dgvParts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected! Please make a selection.");
+            }
+            else
+            {
+            Part S = dgvParts.CurrentRow.DataBoundItem as Part;
+            Inventory.FullParts.Remove(S);
+            }
         }
 
         private void btnAddPart_Click(object sender, EventArgs e)
@@ -104,12 +112,20 @@ namespace JessePerez
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-
+            this.Close();
         }
 
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
-
+            if (dgvProducts.CurrentRow == null || !dgvProducts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected! Please make a selection.");
+            }
+            else
+            {
+                Product S = dgvProducts.CurrentRow.DataBoundItem as Product;
+                Inventory.FullProducts.Remove(S);
+            }
         }
 
         private void btnModifyProduct_Click(object sender, EventArgs e)
@@ -128,6 +144,11 @@ namespace JessePerez
         }
 
         private void txtbxSearchProduct_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnModifyPart_Click(object sender, EventArgs e)
         {
 
         }
