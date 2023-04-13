@@ -21,7 +21,7 @@ namespace JessePerez.model
 
 
 
-        public Product(int id, string name, int instock, decimal price, int max, int min) 
+        public Product(int id, string name, int instock, decimal price, int min, int max) 
         {
             this.Id = id;
             this.Name = name;
