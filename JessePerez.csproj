@@ -71,6 +71,12 @@
     <Compile Include="view\ModifyPart.Designer.cs">
       <DependentUpon>ModifyPart.cs</DependentUpon>
     </Compile>
+    <Compile Include="view\ModifyProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view\ModifyProduct.Designer.cs">
+      <DependentUpon>ModifyProduct.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="view\AddPart.resx">
       <DependentUpon>AddPart.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +94,9 @@
     </Compile>
     <EmbeddedResource Include="view\ModifyPart.resx">
       <DependentUpon>ModifyPart.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="view\ModifyProduct.resx">
+      <DependentUpon>ModifyProduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -16,5 +16,50 @@ namespace JessePerez.view
         {
             InitializeComponent();
         }
+
+        private void btnInHouse_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOutSourced_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxInventory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxMin_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxMax_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxDynamicName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

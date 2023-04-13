@@ -161,6 +161,7 @@
             this.lblMin.Size = new System.Drawing.Size(24, 13);
             this.lblMin.TabIndex = 12;
             this.lblMin.Text = "Min";
+            this.lblMin.Click += new System.EventHandler(this.lblMin_Click);
             // 
             // lblMax
             // 

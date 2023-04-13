@@ -81,5 +81,10 @@ namespace JessePerez
         {
 
         }
+
+        private void lblMin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
