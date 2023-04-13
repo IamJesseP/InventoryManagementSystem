@@ -17,22 +17,57 @@ namespace JessePerez
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void btnSave_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void txtbxMin_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void lvlPrice_Click(object sender, EventArgs e)
+        private void txtbxMax_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void txtbxPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxInventory_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxID_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbxDynamicName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnInHouse_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnOutSourced_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
         {
 
         }
@@ -42,7 +77,7 @@ namespace JessePerez
 
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
+        private void lblTitle_Click(object sender, EventArgs e)
         {
 
         }

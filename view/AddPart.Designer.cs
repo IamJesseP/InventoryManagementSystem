@@ -34,12 +34,12 @@
             this.lblID = new System.Windows.Forms.Label();
             this.txtbxName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtbxInventory = new System.Windows.Forms.TextBox();
             this.lblInventory = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.lvlPrice = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtbxPrice = new System.Windows.Forms.TextBox();
+            this.lblPrice = new System.Windows.Forms.Label();
+            this.txtbxMin = new System.Windows.Forms.TextBox();
+            this.txtbxMax = new System.Windows.Forms.TextBox();
             this.lblMin = new System.Windows.Forms.Label();
             this.lblMax = new System.Windows.Forms.Label();
             this.btnInHouse = new System.Windows.Forms.RadioButton();
@@ -67,6 +67,7 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // txtbxID
             // 
@@ -74,7 +75,7 @@
             this.txtbxID.Name = "txtbxID";
             this.txtbxID.Size = new System.Drawing.Size(165, 20);
             this.txtbxID.TabIndex = 2;
-            this.txtbxID.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtbxID.TextChanged += new System.EventHandler(this.txtbxID_TextChanged);
             // 
             // lblID
             // 
@@ -84,7 +85,6 @@
             this.lblID.Size = new System.Drawing.Size(18, 13);
             this.lblID.TabIndex = 3;
             this.lblID.Text = "ID";
-            this.lblID.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtbxName
             // 
@@ -92,6 +92,7 @@
             this.txtbxName.Name = "txtbxName";
             this.txtbxName.Size = new System.Drawing.Size(165, 20);
             this.txtbxName.TabIndex = 4;
+            this.txtbxName.TextChanged += new System.EventHandler(this.txtbxName_TextChanged);
             // 
             // lblName
             // 
@@ -102,12 +103,13 @@
             this.lblName.TabIndex = 5;
             this.lblName.Text = "Name";
             // 
-            // textBox1
+            // txtbxInventory
             // 
-            this.textBox1.Location = new System.Drawing.Point(146, 155);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(165, 20);
-            this.textBox1.TabIndex = 6;
+            this.txtbxInventory.Location = new System.Drawing.Point(146, 155);
+            this.txtbxInventory.Name = "txtbxInventory";
+            this.txtbxInventory.Size = new System.Drawing.Size(165, 20);
+            this.txtbxInventory.TabIndex = 6;
+            this.txtbxInventory.TextChanged += new System.EventHandler(this.txtbxInventory_TextChanged);
             // 
             // lblInventory
             // 
@@ -118,36 +120,38 @@
             this.lblInventory.TabIndex = 7;
             this.lblInventory.Text = "Inventory";
             // 
-            // textBox2
+            // txtbxPrice
             // 
-            this.textBox2.Location = new System.Drawing.Point(146, 205);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(165, 20);
-            this.textBox2.TabIndex = 8;
+            this.txtbxPrice.Location = new System.Drawing.Point(146, 205);
+            this.txtbxPrice.Name = "txtbxPrice";
+            this.txtbxPrice.Size = new System.Drawing.Size(165, 20);
+            this.txtbxPrice.TabIndex = 8;
+            this.txtbxPrice.TextChanged += new System.EventHandler(this.txtbxPrice_TextChanged);
             // 
-            // lvlPrice
+            // lblPrice
             // 
-            this.lvlPrice.AutoSize = true;
-            this.lvlPrice.Location = new System.Drawing.Point(109, 208);
-            this.lvlPrice.Name = "lvlPrice";
-            this.lvlPrice.Size = new System.Drawing.Size(31, 13);
-            this.lvlPrice.TabIndex = 9;
-            this.lvlPrice.Text = "Price";
-            this.lvlPrice.Click += new System.EventHandler(this.lvlPrice_Click);
+            this.lblPrice.AutoSize = true;
+            this.lblPrice.Location = new System.Drawing.Point(109, 208);
+            this.lblPrice.Name = "lblPrice";
+            this.lblPrice.Size = new System.Drawing.Size(31, 13);
+            this.lblPrice.TabIndex = 9;
+            this.lblPrice.Text = "Price";
             // 
-            // textBox3
+            // txtbxMin
             // 
-            this.textBox3.Location = new System.Drawing.Point(146, 246);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(68, 20);
-            this.textBox3.TabIndex = 10;
+            this.txtbxMin.Location = new System.Drawing.Point(146, 246);
+            this.txtbxMin.Name = "txtbxMin";
+            this.txtbxMin.Size = new System.Drawing.Size(68, 20);
+            this.txtbxMin.TabIndex = 10;
+            this.txtbxMin.TextChanged += new System.EventHandler(this.txtbxMin_TextChanged);
             // 
-            // textBox4
+            // txtbxMax
             // 
-            this.textBox4.Location = new System.Drawing.Point(266, 246);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(68, 20);
-            this.textBox4.TabIndex = 11;
+            this.txtbxMax.Location = new System.Drawing.Point(266, 246);
+            this.txtbxMax.Name = "txtbxMax";
+            this.txtbxMax.Size = new System.Drawing.Size(68, 20);
+            this.txtbxMax.TabIndex = 11;
+            this.txtbxMax.TextChanged += new System.EventHandler(this.txtbxMax_TextChanged);
             // 
             // lblMin
             // 
@@ -177,6 +181,7 @@
             this.btnInHouse.TabStop = true;
             this.btnInHouse.Text = "In-House";
             this.btnInHouse.UseVisualStyleBackColor = true;
+            this.btnInHouse.CheckedChanged += new System.EventHandler(this.btnInHouse_CheckedChanged);
             // 
             // btnOutSourced
             // 
@@ -188,6 +193,7 @@
             this.btnOutSourced.TabStop = true;
             this.btnOutSourced.Text = "Outsourced";
             this.btnOutSourced.UseVisualStyleBackColor = true;
+            this.btnOutSourced.CheckedChanged += new System.EventHandler(this.btnOutSourced_CheckedChanged);
             // 
             // lblTitle
             // 
@@ -197,7 +203,7 @@
             this.lblTitle.Size = new System.Drawing.Size(48, 13);
             this.lblTitle.TabIndex = 16;
             this.lblTitle.Text = "Add Part";
-            this.lblTitle.Click += new System.EventHandler(this.label1_Click_1);
+            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
             // txtbxDynamicName
             // 
@@ -205,6 +211,7 @@
             this.txtbxDynamicName.Name = "txtbxDynamicName";
             this.txtbxDynamicName.Size = new System.Drawing.Size(165, 20);
             this.txtbxDynamicName.TabIndex = 17;
+            this.txtbxDynamicName.TextChanged += new System.EventHandler(this.txtbxDynamicName_TextChanged);
             // 
             // lblDynamicName
             // 
@@ -227,12 +234,12 @@
             this.Controls.Add(this.btnInHouse);
             this.Controls.Add(this.lblMax);
             this.Controls.Add(this.lblMin);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.lvlPrice);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtbxMax);
+            this.Controls.Add(this.txtbxMin);
+            this.Controls.Add(this.lblPrice);
+            this.Controls.Add(this.txtbxPrice);
             this.Controls.Add(this.lblInventory);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtbxInventory);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.txtbxName);
             this.Controls.Add(this.lblID);
@@ -255,12 +262,12 @@
         private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.TextBox txtbxName;
         private System.Windows.Forms.Label lblName;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtbxInventory;
         private System.Windows.Forms.Label lblInventory;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label lvlPrice;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtbxPrice;
+        private System.Windows.Forms.Label lblPrice;
+        private System.Windows.Forms.TextBox txtbxMin;
+        private System.Windows.Forms.TextBox txtbxMax;
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Label lblMax;
         private System.Windows.Forms.RadioButton btnInHouse;
