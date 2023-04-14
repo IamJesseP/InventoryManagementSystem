@@ -12,6 +12,28 @@ namespace JessePerez.model
         public static BindingList<Part> FullParts = new BindingList<Part>();
         public static BindingList<Product> FullProducts = new BindingList<Product>();
 
+        public static Part CurrentPart { get; set;}
+        public static int CurrentPartID { get; set;}
+        public static int CurrentIndex { get; set; }
+
+        public static Part LookupPart(int i)
+        {
+            for (int j = 0; j < FullParts.Count; j++)
+            {
+                if (FullParts[j].Id.Equals(i))
+                {
+                    CurrentIndex = j;
+                    return FullParts[j];
+                }
+            }
+            CurrentIndex = -1;
+            return null;
+        }
+
+
+
+
+
         public static void SampleInventoryData() 
         {
             Part samplePart1 = new InHouse(1, "Screw", 12, 3, 3, 9, 2990);

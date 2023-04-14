@@ -37,7 +37,6 @@ namespace JessePerez
             {
                 DataSource = Inventory.FullProducts
             };
-
             dgvProducts.DataSource = productsBindingSource;
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.ReadOnly = true;
@@ -61,7 +60,13 @@ namespace JessePerez
 
         private void dgvParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            //Select part and part ID
             int indexSelected = e.RowIndex;
+            Inventory.CurrentPartID = (int)dgvParts.Rows[indexSelected].Cells[0].Value;
+            Inventory.CurrentPart = Inventory.LookupPart(Inventory.CurrentPartID);
+
+
+
         }
 
         private void btnModify_Click(object sender, EventArgs e)
@@ -72,13 +77,12 @@ namespace JessePerez
             }
             else
             {
-
+                this.Hide();
+                new ModifyPart().Show();
             }
 
             Part S = dgvParts.CurrentRow.DataBoundItem as Part;
-
-
-            int Index = dgvParts.CurrentCell.RowIndex;
+            int index = dgvParts.CurrentCell.RowIndex;
 
         }
 

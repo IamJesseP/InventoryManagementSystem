@@ -16,6 +16,7 @@ namespace JessePerez.view
         public ModifyPart()
         {
             InitializeComponent();
+
         }
 
         private void btnInHouse_CheckedChanged(object sender, EventArgs e)
