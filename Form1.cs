@@ -17,15 +17,10 @@ namespace JessePerez
         public Form1()
         {
             InitializeComponent();
-            Inventory.SampleInventoryData();
 
 
             //set the data source for Parts, edit props
-            BindingSource partsBindingSource = new BindingSource
-            {
-                DataSource = Inventory.FullParts
-            };
-            dgvParts.DataSource = partsBindingSource;
+            dgvParts.DataSource = Inventory.FullParts;
             dgvParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvParts.ReadOnly = true;
             dgvParts.MultiSelect = false;
@@ -33,11 +28,7 @@ namespace JessePerez
 
 
             //set the data source for Products, edit props
-            BindingSource productsBindingSource = new BindingSource
-            {
-                DataSource = Inventory.FullProducts
-            };
-            dgvProducts.DataSource = productsBindingSource;
+            dgvProducts.DataSource = Inventory.FullProducts;
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.ReadOnly = true;
             dgvProducts.MultiSelect = false;

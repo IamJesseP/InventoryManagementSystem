@@ -30,9 +30,11 @@ namespace JessePerez.model
             return null;
         }
 
-
-
-
+        internal static void swap(Part part)
+        {
+            FullParts.Insert(CurrentIndex, part);
+            FullParts.RemoveAt(CurrentIndex + 1);
+        }
 
         public static void SampleInventoryData() 
         {

@@ -17,15 +17,14 @@ namespace JessePerez.view
         bool isInHouse;
 
         // Checks for text, and int value if is Inhouse
-        private bool validateSave()
+        private bool validateSave(TextBox textBox)
         { 
-            if(string.IsNullOrWhiteSpace(txtbxName.Text) || string.IsNullOrWhiteSpace(txtbxDynamicVar.Text))
+            if(string.IsNullOrWhiteSpace(textBox.Text) || string.IsNullOrWhiteSpace(txtbxDynamicVar.Text))
             {
                 return false;
             } 
             else if (isInHouse && !int.TryParse(txtbxDynamicVar.Text, out int number))
             {
-               
                 return false;
             } 
             else { return true; }
@@ -41,7 +40,7 @@ namespace JessePerez.view
             {
                 txtbxDynamicVar.BackColor = Color.White;
             }
-            btnSave.Enabled = validateSave();
+            btnSave.Enabled = validateSave(txtbxDynamicVar);
         }
 
         public ModifyPart()
@@ -49,6 +48,10 @@ namespace JessePerez.view
             InitializeComponent();
             // Loads data into Modify Part Screen
             txtbxID.Text = Inventory.CurrentPart.Id.ToString();
+            txtbxID.ReadOnly = true;
+            txtbxID.BackColor = Color.WhiteSmoke;
+            txtbxID.TabStop = false;
+
             txtbxName.Text = Inventory.CurrentPart.Name.ToString();
             txtbxInventory.Text = Inventory.CurrentPart.InStock.ToString();
             txtbxPrice.Text = Inventory.CurrentPart.Price.ToString();
@@ -74,45 +77,54 @@ namespace JessePerez.view
 
         private void txtbxID_TextChanged(object sender, EventArgs e)
         {
-
+            ValidateTextBox(txtbxID);
         }
 
         private void txtbxName_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrWhiteSpace(txtbxName.Text))
-            {
-                txtbxName.BackColor = Color.Salmon;
-            }
-            else
-            {
-                txtbxName.BackColor = Color.White;
-            }
-            btnSave.Enabled = validateSave();
+            ValidateTextBox(txtbxName);
         }
 
         private void txtbxInventory_TextChanged(object sender, EventArgs e)
         {
-
+            ValidateTextBox(txtbxInventory);
         }
 
         private void txtbxPrice_TextChanged(object sender, EventArgs e)
         {
-
+            ValidateTextBox(txtbxPrice);
         }
 
         private void txtbxMin_TextChanged(object sender, EventArgs e)
         {
-
+            ValidateTextBox(txtbxMin);
         }
 
         private void txtbxMax_TextChanged(object sender, EventArgs e)
         {
-
+            ValidateTextBox(txtbxMax);
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-   
+            if (isInHouse)
+            {
+                Part part = new InHouse(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToDecimal(txtbxPrice.Text),
+                    Convert.ToInt32(txtbxInventory.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text),
+                    Convert.ToInt32(txtbxDynamicVar.Text));
+                Inventory.swap(part);
+            }
+            else
+            {
+                Part part = new OutSourced(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToDecimal(txtbxPrice.Text),
+                    Convert.ToInt32(txtbxInventory.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text),
+                    txtbxDynamicVar.Text);
+                Inventory.swap(part);
+            }
+
+            this.Hide();
+            Form1 f1 = new Form1();
+            f1.Show();
         }
 
         private void txtbxDynamicVar_TextChanged(object sender, EventArgs e)
@@ -133,5 +145,19 @@ namespace JessePerez.view
             isInHouse = false;
             validateOnRBSwitch();
         }
+
+        private void ValidateTextBox(TextBox textBox)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                textBox.BackColor = Color.Salmon;
+            }
+            else
+            {
+                textBox.BackColor = Color.White;
+            }
+            btnSave.Enabled = validateSave(textBox);
+        }
+
     }
 }
