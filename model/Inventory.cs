@@ -38,7 +38,7 @@ namespace JessePerez.model
         {
             Part samplePart1 = new InHouse(1, "Screw", 12, 3, 3, 9, 2990);
             Part samplePart2 = new InHouse(2, "Nail", 6, 1, 1, 8, 2991);
-            Part samplePart3 = new Outsourced(3, "Washer", 5.00M, 10, 1, 10, "Toy Story Inc.");
+            Part samplePart3 = new OutSourced(3, "Washer", 5.00M, 10, 1, 10, "Toy Story Inc.");
         
             FullParts.Add(samplePart1);
             FullParts.Add(samplePart2);

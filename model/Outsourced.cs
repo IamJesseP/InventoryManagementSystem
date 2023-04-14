@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace JessePerez.model
 {
-    public class Outsourced : Part
+    public class OutSourced : Part
     {
         public string CompanyName { get; set; }
 
-        public Outsourced(int id, string name, decimal price, int instock, int min, int max, string companyName)
+        public OutSourced(int id, string name, decimal price, int instock, int min, int max, string companyName)
             : base(id, name, price, instock, min, max)
         {
             this.CompanyName = companyName;
         }
 
-        public Outsourced() { }
+        public OutSourced() { }
     }
 }

@@ -34,9 +34,9 @@
             this.txtbxPrice = new System.Windows.Forms.TextBox();
             this.txtbxMin = new System.Windows.Forms.TextBox();
             this.txtbxMax = new System.Windows.Forms.TextBox();
-            this.txtbxDynamicName = new System.Windows.Forms.TextBox();
-            this.btnInHouse = new System.Windows.Forms.RadioButton();
-            this.btnOutSourced = new System.Windows.Forms.RadioButton();
+            this.txtbxDynamicVar = new System.Windows.Forms.TextBox();
+            this.rbInHouse = new System.Windows.Forms.RadioButton();
+            this.rbOutSourced = new System.Windows.Forms.RadioButton();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
@@ -97,37 +97,37 @@
             this.txtbxMax.TabIndex = 12;
             this.txtbxMax.TextChanged += new System.EventHandler(this.txtbxMax_TextChanged);
             // 
-            // txtbxDynamicName
+            // txtbxDynamicVar
             // 
-            this.txtbxDynamicName.Location = new System.Drawing.Point(146, 295);
-            this.txtbxDynamicName.Name = "txtbxDynamicName";
-            this.txtbxDynamicName.Size = new System.Drawing.Size(165, 20);
-            this.txtbxDynamicName.TabIndex = 18;
-            this.txtbxDynamicName.TextChanged += new System.EventHandler(this.txtbxDynamicName_TextChanged);
+            this.txtbxDynamicVar.Location = new System.Drawing.Point(146, 295);
+            this.txtbxDynamicVar.Name = "txtbxDynamicVar";
+            this.txtbxDynamicVar.Size = new System.Drawing.Size(165, 20);
+            this.txtbxDynamicVar.TabIndex = 18;
+            this.txtbxDynamicVar.TextChanged += new System.EventHandler(this.txtbxDynamicVar_TextChanged);
             // 
-            // btnInHouse
+            // rbInHouse
             // 
-            this.btnInHouse.AutoSize = true;
-            this.btnInHouse.Location = new System.Drawing.Point(129, 31);
-            this.btnInHouse.Name = "btnInHouse";
-            this.btnInHouse.Size = new System.Drawing.Size(68, 17);
-            this.btnInHouse.TabIndex = 19;
-            this.btnInHouse.TabStop = true;
-            this.btnInHouse.Text = "In-House";
-            this.btnInHouse.UseVisualStyleBackColor = true;
-            this.btnInHouse.CheckedChanged += new System.EventHandler(this.btnInHouse_CheckedChanged);
+            this.rbInHouse.AutoSize = true;
+            this.rbInHouse.Location = new System.Drawing.Point(129, 31);
+            this.rbInHouse.Name = "rbInHouse";
+            this.rbInHouse.Size = new System.Drawing.Size(68, 17);
+            this.rbInHouse.TabIndex = 19;
+            this.rbInHouse.TabStop = true;
+            this.rbInHouse.Text = "In-House";
+            this.rbInHouse.UseVisualStyleBackColor = true;
+            this.rbInHouse.CheckedChanged += new System.EventHandler(this.rbInHouse_CheckedChanged);
             // 
-            // btnOutSourced
+            // rbOutSourced
             // 
-            this.btnOutSourced.AutoSize = true;
-            this.btnOutSourced.Location = new System.Drawing.Point(237, 31);
-            this.btnOutSourced.Name = "btnOutSourced";
-            this.btnOutSourced.Size = new System.Drawing.Size(80, 17);
-            this.btnOutSourced.TabIndex = 20;
-            this.btnOutSourced.TabStop = true;
-            this.btnOutSourced.Text = "Outsourced";
-            this.btnOutSourced.UseVisualStyleBackColor = true;
-            this.btnOutSourced.CheckedChanged += new System.EventHandler(this.btnOutSourced_CheckedChanged);
+            this.rbOutSourced.AutoSize = true;
+            this.rbOutSourced.Location = new System.Drawing.Point(237, 31);
+            this.rbOutSourced.Name = "rbOutSourced";
+            this.rbOutSourced.Size = new System.Drawing.Size(80, 17);
+            this.rbOutSourced.TabIndex = 20;
+            this.rbOutSourced.TabStop = true;
+            this.rbOutSourced.Text = "Outsourced";
+            this.rbOutSourced.UseVisualStyleBackColor = true;
+            this.rbOutSourced.CheckedChanged += new System.EventHandler(this.rbOutSourced_CheckedChanged);
             // 
             // lblTitle
             // 
@@ -235,9 +235,9 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnOutSourced);
-            this.Controls.Add(this.btnInHouse);
-            this.Controls.Add(this.txtbxDynamicName);
+            this.Controls.Add(this.rbOutSourced);
+            this.Controls.Add(this.rbInHouse);
+            this.Controls.Add(this.txtbxDynamicVar);
             this.Controls.Add(this.txtbxMax);
             this.Controls.Add(this.txtbxMin);
             this.Controls.Add(this.txtbxPrice);
@@ -259,9 +259,9 @@
         private System.Windows.Forms.TextBox txtbxPrice;
         private System.Windows.Forms.TextBox txtbxMin;
         private System.Windows.Forms.TextBox txtbxMax;
-        private System.Windows.Forms.TextBox txtbxDynamicName;
-        private System.Windows.Forms.RadioButton btnInHouse;
-        private System.Windows.Forms.RadioButton btnOutSourced;
+        private System.Windows.Forms.TextBox txtbxDynamicVar;
+        private System.Windows.Forms.RadioButton rbInHouse;
+        private System.Windows.Forms.RadioButton rbOutSourced;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
