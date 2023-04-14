@@ -45,7 +45,7 @@ namespace JessePerez
 
 
         }
-
+         
         private void myPartBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
             //clears selection upon init
@@ -63,29 +63,12 @@ namespace JessePerez
             //Select part and part ID
             int indexSelected = e.RowIndex;
             Inventory.CurrentPartID = (int)dgvParts.Rows[indexSelected].Cells[0].Value;
+
+            //Sets the object for the currently selected Part row
             Inventory.CurrentPart = Inventory.LookupPart(Inventory.CurrentPartID);
 
 
-
         }
-
-        private void btnModify_Click(object sender, EventArgs e)
-        {
-            if (dgvParts.CurrentRow == null || !dgvParts.CurrentRow.Selected)
-            {
-                MessageBox.Show("Nothing is selected!");
-            }
-            else
-            {
-                this.Hide();
-                new ModifyPart().Show();
-            }
-
-            Part S = dgvParts.CurrentRow.DataBoundItem as Part;
-            int index = dgvParts.CurrentCell.RowIndex;
-
-        }
-
 
         private void btnDeletePart_Click(object sender, EventArgs e)
         {
@@ -157,7 +140,15 @@ namespace JessePerez
 
         private void btnModifyPart_Click(object sender, EventArgs e)
         {
-
+            if (dgvParts.CurrentRow == null || !dgvParts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected!");
+            }
+            else
+            {
+                this.Hide();
+                new ModifyPart().Show();
+            }
         }
 
         private void dgvParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
