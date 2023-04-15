@@ -75,6 +75,7 @@ namespace JessePerez.view
         }
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (!ValidateMinMax()) return;
             if (isInHouse)
             {
                 Part part = new InHouse(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToDecimal(txtbxPrice.Text),
@@ -176,6 +177,28 @@ namespace JessePerez.view
                     return true;
                 default:
                     return false;
+            }
+        }
+        private bool ValidateMinMax()
+        {
+            int max = int.Parse(txtbxMax.Text);
+            int min = int.Parse(txtbxMin.Text);
+            int inventory = int.Parse(txtbxInventory.Text);
+            if (max < min)
+            {
+                MessageBox.Show($"Max value '{max}' cannot be less than Min value '{min}'.");
+                return false;
+            }
+
+            if (inventory < min || inventory > max)
+            {
+                MessageBox.Show($"Inventory value cannot be greater than the Max value or less" +
+                    $" than the Min value.");
+                return false;
+            }
+            else
+            {
+                return true;
             }
         }
         #endregion
