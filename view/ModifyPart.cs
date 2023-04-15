@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Linq;
 using JessePerez.model;
 
@@ -15,34 +16,6 @@ namespace JessePerez.view
     public partial class ModifyPart : Form
     {
         bool isInHouse;
-
-        // Checks for text, and int value if is Inhouse
-        private bool validateSave(TextBox textBox)
-        { 
-            if(string.IsNullOrWhiteSpace(textBox.Text) || string.IsNullOrWhiteSpace(txtbxDynamicVar.Text))
-            {
-                return false;
-            } 
-            else if (isInHouse && !int.TryParse(txtbxDynamicVar.Text, out int number))
-            {
-                return false;
-            } 
-            else { return true; }
-        }
-
-        private void validateOnRBSwitch()
-        {
-            if (string.IsNullOrWhiteSpace(txtbxDynamicVar.Text) || (isInHouse && !int.TryParse(txtbxDynamicVar.Text, out int number)))
-            {
-                txtbxDynamicVar.BackColor = Color.Salmon;
-            }
-            else
-            {
-                txtbxDynamicVar.BackColor = Color.White;
-            }
-            btnSave.Enabled = validateSave(txtbxDynamicVar);
-        }
-
         public ModifyPart()
         {
             InitializeComponent();
@@ -75,36 +48,31 @@ namespace JessePerez.view
             }
         }
 
+        #region Event Listeners
         private void txtbxID_TextChanged(object sender, EventArgs e)
         {
-            ValidateTextBox(txtbxID);
+            ValidateTextBox(txtbxID, "int");
         }
-
         private void txtbxName_TextChanged(object sender, EventArgs e)
         {
-            ValidateTextBox(txtbxName);
+            ValidateTextBox(txtbxName, "string");
         }
-
         private void txtbxInventory_TextChanged(object sender, EventArgs e)
         {
-            ValidateTextBox(txtbxInventory);
+            ValidateTextBox(txtbxInventory, "int");
         }
-
         private void txtbxPrice_TextChanged(object sender, EventArgs e)
         {
-            ValidateTextBox(txtbxPrice);
+            ValidateTextBox(txtbxPrice, "decimal");
         }
-
         private void txtbxMin_TextChanged(object sender, EventArgs e)
         {
-            ValidateTextBox(txtbxMin);
+            ValidateTextBox(txtbxMin, "int");
         }
-
         private void txtbxMax_TextChanged(object sender, EventArgs e)
         {
-            ValidateTextBox(txtbxMax);
+            ValidateTextBox(txtbxMax, "int");
         }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             if (isInHouse)
@@ -126,29 +94,29 @@ namespace JessePerez.view
             Form1 f1 = new Form1();
             f1.Show();
         }
-
         private void txtbxDynamicVar_TextChanged(object sender, EventArgs e)
         {
-            validateOnRBSwitch();
+            ValidateTextBox(txtbxDynamicVar, isInHouse ? "int" : "string");
         }
-
         private void rbInHouse_CheckedChanged(object sender, EventArgs e)
         {
             lblDynamicName.Text = "Machine ID";
             isInHouse = true;
-            validateOnRBSwitch();
+            ValidateTextBox(txtbxDynamicVar, "int");
         }
-
         private void rbOutSourced_CheckedChanged(object sender, EventArgs e)
         {
             lblDynamicName.Text = "Company Name";
             isInHouse = false;
-            validateOnRBSwitch();
+            ValidateTextBox(txtbxDynamicVar, "string");
         }
+        #endregion
 
-        private void ValidateTextBox(TextBox textBox)
+        #region Validation Methods
+        // Validates for empty text, type of each textbox, and whether to enable btnSave
+        private void ValidateTextBox(TextBox textBox, string type)
         {
-            if (string.IsNullOrWhiteSpace(textBox.Text))
+            if (string.IsNullOrWhiteSpace(textBox.Text) || (isInHouse && !int.TryParse(txtbxDynamicVar.Text, out int number)))
             {
                 textBox.BackColor = Color.Salmon;
             }
@@ -156,8 +124,53 @@ namespace JessePerez.view
             {
                 textBox.BackColor = Color.White;
             }
-            btnSave.Enabled = validateSave(textBox);
+            btnSave.Enabled = validateSave(textBox, type);
         }
 
+        private bool validateSave(TextBox textBox, string type)
+        {
+            if (string.IsNullOrWhiteSpace(textBox.Text))
+            {
+                return false;
+            }
+            else if (!ValidateType(textBox, type))
+            {
+                return false;
+            }
+            else { return true; }
+        }
+        private bool ValidateType(TextBox textBox, string type)
+        {
+            switch (type)
+            {
+                case "int":
+                    if(int.TryParse(textBox.Text, out int intNumber))
+                    {
+                        textBox.BackColor = Color.White;
+                        return true;
+                    }
+                    else
+                    {
+                        textBox.BackColor = Color.Salmon;
+                        return false;
+                    }
+                case "decimal":
+                    if (decimal.TryParse(textBox.Text, out decimal decimalNumber))
+                    {
+                        textBox.BackColor = Color.White;
+                        return true;
+                    }
+                    else
+                    {
+                        textBox.BackColor = Color.Salmon;
+                        return false;
+                    }
+                case "string":
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        #endregion
     }
 }
