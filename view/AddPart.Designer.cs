@@ -42,11 +42,11 @@
             this.txtbxMax = new System.Windows.Forms.TextBox();
             this.lblMin = new System.Windows.Forms.Label();
             this.lblMax = new System.Windows.Forms.Label();
-            this.btnInHouse = new System.Windows.Forms.RadioButton();
-            this.btnOutSourced = new System.Windows.Forms.RadioButton();
+            this.rbInHouse = new System.Windows.Forms.RadioButton();
+            this.rbOutSourced = new System.Windows.Forms.RadioButton();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.txtbxDynamicName = new System.Windows.Forms.TextBox();
-            this.lblDynamicName = new System.Windows.Forms.Label();
+            this.txtbxDynamicVar = new System.Windows.Forms.TextBox();
+            this.lblDynamicVar = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnSave
@@ -161,7 +161,6 @@
             this.lblMin.Size = new System.Drawing.Size(24, 13);
             this.lblMin.TabIndex = 12;
             this.lblMin.Text = "Min";
-            this.lblMin.Click += new System.EventHandler(this.lblMin_Click);
             // 
             // lblMax
             // 
@@ -172,29 +171,29 @@
             this.lblMax.TabIndex = 13;
             this.lblMax.Text = "Max";
             // 
-            // btnInHouse
+            // rbInHouse
             // 
-            this.btnInHouse.AutoSize = true;
-            this.btnInHouse.Location = new System.Drawing.Point(129, 31);
-            this.btnInHouse.Name = "btnInHouse";
-            this.btnInHouse.Size = new System.Drawing.Size(68, 17);
-            this.btnInHouse.TabIndex = 14;
-            this.btnInHouse.TabStop = true;
-            this.btnInHouse.Text = "In-House";
-            this.btnInHouse.UseVisualStyleBackColor = true;
-            this.btnInHouse.CheckedChanged += new System.EventHandler(this.btnInHouse_CheckedChanged);
+            this.rbInHouse.AutoSize = true;
+            this.rbInHouse.Location = new System.Drawing.Point(129, 31);
+            this.rbInHouse.Name = "rbInHouse";
+            this.rbInHouse.Size = new System.Drawing.Size(68, 17);
+            this.rbInHouse.TabIndex = 14;
+            this.rbInHouse.TabStop = true;
+            this.rbInHouse.Text = "In-House";
+            this.rbInHouse.UseVisualStyleBackColor = true;
+            this.rbInHouse.CheckedChanged += new System.EventHandler(this.rbInHouse_CheckedChanged);
             // 
-            // btnOutSourced
+            // rbOutSourced
             // 
-            this.btnOutSourced.AutoSize = true;
-            this.btnOutSourced.Location = new System.Drawing.Point(237, 31);
-            this.btnOutSourced.Name = "btnOutSourced";
-            this.btnOutSourced.Size = new System.Drawing.Size(80, 17);
-            this.btnOutSourced.TabIndex = 15;
-            this.btnOutSourced.TabStop = true;
-            this.btnOutSourced.Text = "Outsourced";
-            this.btnOutSourced.UseVisualStyleBackColor = true;
-            this.btnOutSourced.CheckedChanged += new System.EventHandler(this.btnOutSourced_CheckedChanged);
+            this.rbOutSourced.AutoSize = true;
+            this.rbOutSourced.Location = new System.Drawing.Point(237, 31);
+            this.rbOutSourced.Name = "rbOutSourced";
+            this.rbOutSourced.Size = new System.Drawing.Size(80, 17);
+            this.rbOutSourced.TabIndex = 15;
+            this.rbOutSourced.TabStop = true;
+            this.rbOutSourced.Text = "Outsourced";
+            this.rbOutSourced.UseVisualStyleBackColor = true;
+            this.rbOutSourced.CheckedChanged += new System.EventHandler(this.rbOutSourced_CheckedChanged);
             // 
             // lblTitle
             // 
@@ -204,35 +203,34 @@
             this.lblTitle.Size = new System.Drawing.Size(48, 13);
             this.lblTitle.TabIndex = 16;
             this.lblTitle.Text = "Add Part";
-            this.lblTitle.Click += new System.EventHandler(this.lblTitle_Click);
             // 
-            // txtbxDynamicName
+            // txtbxDynamicVar
             // 
-            this.txtbxDynamicName.Location = new System.Drawing.Point(146, 295);
-            this.txtbxDynamicName.Name = "txtbxDynamicName";
-            this.txtbxDynamicName.Size = new System.Drawing.Size(165, 20);
-            this.txtbxDynamicName.TabIndex = 17;
-            this.txtbxDynamicName.TextChanged += new System.EventHandler(this.txtbxDynamicName_TextChanged);
+            this.txtbxDynamicVar.Location = new System.Drawing.Point(146, 295);
+            this.txtbxDynamicVar.Name = "txtbxDynamicVar";
+            this.txtbxDynamicVar.Size = new System.Drawing.Size(165, 20);
+            this.txtbxDynamicVar.TabIndex = 17;
+            this.txtbxDynamicVar.TextChanged += new System.EventHandler(this.txtbxDynamicVar_TextChanged);
             // 
-            // lblDynamicName
+            // lblDynamicVar
             // 
-            this.lblDynamicName.AutoSize = true;
-            this.lblDynamicName.Location = new System.Drawing.Point(58, 298);
-            this.lblDynamicName.Name = "lblDynamicName";
-            this.lblDynamicName.Size = new System.Drawing.Size(82, 13);
-            this.lblDynamicName.TabIndex = 18;
-            this.lblDynamicName.Text = "Company Name";
+            this.lblDynamicVar.AutoSize = true;
+            this.lblDynamicVar.Location = new System.Drawing.Point(58, 298);
+            this.lblDynamicVar.Name = "lblDynamicVar";
+            this.lblDynamicVar.Size = new System.Drawing.Size(82, 13);
+            this.lblDynamicVar.TabIndex = 18;
+            this.lblDynamicVar.Text = "Company Name";
             // 
             // AddPart
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 410);
-            this.Controls.Add(this.lblDynamicName);
-            this.Controls.Add(this.txtbxDynamicName);
+            this.Controls.Add(this.lblDynamicVar);
+            this.Controls.Add(this.txtbxDynamicVar);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.btnOutSourced);
-            this.Controls.Add(this.btnInHouse);
+            this.Controls.Add(this.rbOutSourced);
+            this.Controls.Add(this.rbInHouse);
             this.Controls.Add(this.lblMax);
             this.Controls.Add(this.lblMin);
             this.Controls.Add(this.txtbxMax);
@@ -249,7 +247,6 @@
             this.Controls.Add(this.btnSave);
             this.Name = "AddPart";
             this.Text = "AddPart";
-            this.Load += new System.EventHandler(this.AddPart_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,10 +268,10 @@
         private System.Windows.Forms.TextBox txtbxMax;
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Label lblMax;
-        private System.Windows.Forms.RadioButton btnInHouse;
-        private System.Windows.Forms.RadioButton btnOutSourced;
+        private System.Windows.Forms.RadioButton rbInHouse;
+        private System.Windows.Forms.RadioButton rbOutSourced;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtbxDynamicName;
-        private System.Windows.Forms.Label lblDynamicName;
+        private System.Windows.Forms.TextBox txtbxDynamicVar;
+        private System.Windows.Forms.Label lblDynamicVar;
     }
 }

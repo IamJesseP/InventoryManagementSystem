@@ -17,8 +17,6 @@ namespace JessePerez
         public Form1()
         {
             InitializeComponent();
-
-
             //set the data source for Parts, edit props
             dgvParts.DataSource = Inventory.FullParts;
             dgvParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -26,28 +24,27 @@ namespace JessePerez
             dgvParts.MultiSelect = false;
             dgvParts.AllowUserToAddRows = false;
 
-
             //set the data source for Products, edit props
             dgvProducts.DataSource = Inventory.FullProducts;
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvProducts.ReadOnly = true;
             dgvProducts.MultiSelect = false;
             dgvProducts.AllowUserToAddRows = false;
-
-
         }
-         
+
+        #region Clears Row Selection
+        //clears selection upon initialization
         private void myPartBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            //clears selection upon init
             dgvParts.ClearSelection();
         }
 
         private void myProductBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            //clears selection upon init
             dgvProducts.ClearSelection();
         }
+        #endregion
+
 
         private void dgvParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -140,11 +137,6 @@ namespace JessePerez
                 this.Hide();
                 new ModifyPart().Show();
             }
-        }
-
-        private void dgvParts_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

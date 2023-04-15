@@ -110,6 +110,12 @@ namespace JessePerez.view
             isInHouse = false;
             ValidateTextBox(txtbxDynamicVar, "string");
         }
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 f1 = new Form1();
+            f1.Show();
+        }
         #endregion
 
         #region Validation Methods
@@ -124,10 +130,10 @@ namespace JessePerez.view
             {
                 textBox.BackColor = Color.White;
             }
-            btnSave.Enabled = validateSave(textBox, type);
+            btnSave.Enabled = ValidateSave(textBox, type);
         }
 
-        private bool validateSave(TextBox textBox, string type)
+        private bool ValidateSave(TextBox textBox, string type)
         {
             if (string.IsNullOrWhiteSpace(textBox.Text))
             {
@@ -166,11 +172,13 @@ namespace JessePerez.view
                         return false;
                     }
                 case "string":
+                    textBox.BackColor = Color.White;
                     return true;
                 default:
                     return false;
             }
         }
         #endregion
+
     }
 }
