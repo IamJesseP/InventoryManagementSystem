@@ -13,7 +13,7 @@ namespace JessePerez.view
 {
     public partial class ModifyProduct : Form
     {
-        BindingList<Part> partsAssociatedList = new BindingList<Part>();
+        private static int AssociatedIndex = -1;
         public ModifyProduct()
         {
             // Loads data into Modify Product Screen
@@ -36,12 +36,9 @@ namespace JessePerez.view
             dgvAllParts.MultiSelect = false;
             dgvAllParts.AllowUserToAddRows = false;
 
-            foreach (Part part in Inventory.CurrentProduct.AssociatedParts)
-            {
-                partsAssociatedList.Add(part);
-            }
 
-            dgvPartsAssociated.DataSource = partsAssociatedList;
+
+            dgvPartsAssociated.DataSource = Inventory.CurrentProduct.AssociatedParts;
             dgvPartsAssociated.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPartsAssociated.ReadOnly = true;
             dgvPartsAssociated.MultiSelect = false;
@@ -94,11 +91,32 @@ namespace JessePerez.view
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            if (dgvAllParts.CurrentRow == null || !dgvAllParts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected!");
+            }
+            else
+            {
+                if (Inventory.CurrentProduct.AssociatedParts.Contains(Inventory.CurrentPart))
+                {
+                    MessageBox.Show("Part is already associated.");
+                }
+                else
+                {
+                    Inventory.CurrentProduct.AssociatedParts.Add(Inventory.CurrentPart);
+                }
+            }
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
-
+           if (dgvPartsAssociated.CurrentRow == null || !dgvPartsAssociated.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected!");
+            }
+            else
+            {
+                Inventory.CurrentProduct.AssociatedParts.RemoveAt(AssociatedIndex);
+            }
         }
         private void btnCancel_Click(object sender, EventArgs e)
         {
@@ -111,7 +129,12 @@ namespace JessePerez.view
             if (!ValidateMinMax()) return;
             Product product = new Product(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToInt32(txtbxInventory.Text),
                 Convert.ToDecimal(txtbxPrice.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text));
+           foreach (Part p in Inventory.CurrentProduct.AssociatedParts)
+            {
+                product.AssociatedParts.Add(p);
+            }
             Inventory.SwapProduct(product);
+            
             this.Hide();
             Form1 f1 = new Form1();
             f1.Show();    
@@ -202,5 +225,19 @@ namespace JessePerez.view
         }
         #endregion
 
+        private void dgvAllParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Select part and part ID
+            int indexSelected = e.RowIndex;
+            Inventory.CurrentPartID = (int)dgvAllParts.Rows[indexSelected].Cells[0].Value;
+
+            //Sets the object for the currently selected Part row
+            Inventory.CurrentPart = Inventory.LookupPart(Inventory.CurrentPartID);
+        }
+
+        private void dgvPartsAssociated_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           AssociatedIndex = e.RowIndex;
+        }
     }
 }

@@ -16,7 +16,8 @@ namespace JessePerez.model
 
         public static Part CurrentPart { get; set;}
         public static int CurrentPartID { get; set;}
-        public static int CurrentIndex { get; set; }
+        public static int CurrentPartIndex { get; set; }
+        public static int CurrentProductIndex { get; set; }
         public static Product CurrentProduct { get; set;}
         public static int CurrentProductID { get; set;}
         public static void SampleInventoryData() 
@@ -43,22 +44,22 @@ namespace JessePerez.model
             {
                 if (FullParts[j].Id.Equals(i))
                 {
-                    CurrentIndex = j;
+                    CurrentPartIndex = j;
                     return FullParts[j];
                 }
             }
-            CurrentIndex = -1;
+            CurrentPartIndex = -1;
             return null;
         }
         internal static void SwapPart(Part part)
         {
-            FullParts.Insert(CurrentIndex, part);
-            FullParts.RemoveAt(CurrentIndex + 1);
+            FullParts.Insert(CurrentPartIndex, part);
+            FullParts.RemoveAt(CurrentPartIndex + 1);
         }
         internal static void SwapProduct(Product product) 
         {
-            FullProducts.Insert(CurrentIndex, product);
-            FullProducts.RemoveAt(CurrentIndex + 1);
+                FullProducts.Insert(CurrentProductIndex, product);
+                FullProducts.RemoveAt(CurrentProductIndex + 1);
         }
         public static Product LookupProduct(int i)
         {   //Returns the currently selected Product object
@@ -66,11 +67,11 @@ namespace JessePerez.model
             {
                 if (FullProducts[j].Id.Equals(i))
                 {
-                    CurrentIndex = j;
+                    CurrentPartIndex = j;
                     return FullProducts[j];
                 }
             }
-            CurrentIndex = -1;
+            CurrentPartIndex = -1;
             return null;
         }
     }

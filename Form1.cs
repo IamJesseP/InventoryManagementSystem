@@ -51,11 +51,8 @@ namespace JessePerez
             //Select part and part ID
             int indexSelected = e.RowIndex;
             Inventory.CurrentPartID = (int)dgvParts.Rows[indexSelected].Cells[0].Value;
-
             //Sets the object for the currently selected Part row
             Inventory.CurrentPart = Inventory.LookupPart(Inventory.CurrentPartID);
-
-
         }
         private void btnDeletePart_Click(object sender, EventArgs e)
         {
@@ -102,7 +99,6 @@ namespace JessePerez
             //Select product and product ID
             int indexSelected = e.RowIndex;
             Inventory.CurrentProductID = (int)dgvProducts.Rows[indexSelected].Cells[0].Value;
-
             //Sets the object for the currently selected Product row
             Inventory.CurrentProduct = Inventory.LookupProduct(Inventory.CurrentProductID);
         }
