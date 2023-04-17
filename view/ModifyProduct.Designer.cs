@@ -43,10 +43,6 @@
             this.txtbxMax = new System.Windows.Forms.TextBox();
             this.dgvAllParts = new System.Windows.Forms.DataGridView();
             this.dgvPartsAssociated = new System.Windows.Forms.DataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblAllParts = new System.Windows.Forms.Label();
             this.lblPartsAssociated = new System.Windows.Forms.Label();
             this.txtbxSearch = new System.Windows.Forms.TextBox();
@@ -61,6 +57,12 @@
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsAssociated)).BeginInit();
             this.SuspendLayout();
@@ -201,31 +203,14 @@
             this.Column5,
             this.Column6,
             this.Column7,
-            this.Column8});
+            this.Column8,
+            this.Column11,
+            this.Column12});
             this.dgvPartsAssociated.Location = new System.Drawing.Point(388, 326);
             this.dgvPartsAssociated.Name = "dgvPartsAssociated";
             this.dgvPartsAssociated.Size = new System.Drawing.Size(444, 184);
             this.dgvPartsAssociated.TabIndex = 14;
-            // 
-            // Column5
-            // 
-            this.Column5.HeaderText = "Part ID";
-            this.Column5.Name = "Column5";
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Part Name";
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "Inventory";
-            this.Column7.Name = "Column7";
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Price";
-            this.Column8.Name = "Column8";
+            this.dgvPartsAssociated.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvPartsAssociated_DataBindingComplete);
             // 
             // lblAllParts
             // 
@@ -341,6 +326,44 @@
             this.Column10.Name = "Column10";
             this.Column10.Visible = false;
             // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "Id";
+            this.Column5.HeaderText = "Part ID";
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "Name";
+            this.Column6.HeaderText = "Part Name";
+            this.Column6.Name = "Column6";
+            // 
+            // Column7
+            // 
+            this.Column7.DataPropertyName = "InStock";
+            this.Column7.HeaderText = "Inventory";
+            this.Column7.Name = "Column7";
+            // 
+            // Column8
+            // 
+            this.Column8.DataPropertyName = "Price";
+            this.Column8.HeaderText = "Price";
+            this.Column8.Name = "Column8";
+            // 
+            // Column11
+            // 
+            this.Column11.DataPropertyName = "Min";
+            this.Column11.HeaderText = "Min";
+            this.Column11.Name = "Column11";
+            this.Column11.Visible = false;
+            // 
+            // Column12
+            // 
+            this.Column12.DataPropertyName = "Max";
+            this.Column12.HeaderText = "Max";
+            this.Column12.Name = "Column12";
+            this.Column12.Visible = false;
+            // 
             // ModifyProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -396,10 +419,6 @@
         private System.Windows.Forms.DataGridView dgvAllParts;
         private System.Windows.Forms.DataGridView dgvPartsAssociated;
         private System.Windows.Forms.Label lblAllParts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
         private System.Windows.Forms.Label lblPartsAssociated;
         private System.Windows.Forms.TextBox txtbxSearch;
         private System.Windows.Forms.Button btnSearch;
@@ -413,5 +432,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
     }
 }

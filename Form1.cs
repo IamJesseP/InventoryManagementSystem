@@ -99,11 +99,11 @@ namespace JessePerez
         #region Products Event Listeners
         private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Select part and part ID
+            //Select product and product ID
             int indexSelected = e.RowIndex;
             Inventory.CurrentProductID = (int)dgvProducts.Rows[indexSelected].Cells[0].Value;
 
-            //Sets the object for the currently selected Part row
+            //Sets the object for the currently selected Product row
             Inventory.CurrentProduct = Inventory.LookupProduct(Inventory.CurrentProductID);
         }
         private void btnDeleteProduct_Click(object sender, EventArgs e)

@@ -61,7 +61,7 @@ namespace JessePerez.model
             FullProducts.RemoveAt(CurrentIndex + 1);
         }
         public static Product LookupProduct(int i)
-        {   //Returns the currently selected Part object
+        {   //Returns the currently selected Product object
             for (int j = 0; j < FullProducts.Count; j++)
             {
                 if (FullProducts[j].Id.Equals(i))

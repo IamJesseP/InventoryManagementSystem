@@ -13,6 +13,7 @@ namespace JessePerez.view
 {
     public partial class ModifyProduct : Form
     {
+        BindingList<Part> partsAssociatedList = new BindingList<Part>();
         public ModifyProduct()
         {
             // Loads data into Modify Product Screen
@@ -28,15 +29,35 @@ namespace JessePerez.view
             txtbxMin.Text = Inventory.CurrentProduct.Min.ToString();
             txtbxMax.Text = Inventory.CurrentProduct.Max.ToString();
 
-            //set the data source for Parts, edit props
+            //set the data source for AllParts, edit props
             dgvAllParts.DataSource = Inventory.FullParts;
             dgvAllParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAllParts.ReadOnly = true;
             dgvAllParts.MultiSelect = false;
             dgvAllParts.AllowUserToAddRows = false;
+
+            foreach (Part part in Inventory.CurrentProduct.AssociatedParts)
+            {
+                partsAssociatedList.Add(part);
+            }
+
+            dgvPartsAssociated.DataSource = partsAssociatedList;
+            dgvPartsAssociated.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvPartsAssociated.ReadOnly = true;
+            dgvPartsAssociated.MultiSelect = false;
+            dgvPartsAssociated.AllowUserToAddRows = false;
         }
 
-
+        #region Clears Row Selection
+        private void dgvAllParts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvAllParts.ClearSelection();
+        }
+        private void dgvPartsAssociated_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvPartsAssociated.ClearSelection();
+        }
+        #endregion
 
         #region Event Listeners
         private void txtbxID_TextChanged(object sender, EventArgs e)
@@ -181,9 +202,5 @@ namespace JessePerez.view
         }
         #endregion
 
-        private void dgvAllParts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dgvAllParts.ClearSelection();
-        }
     }
 }
