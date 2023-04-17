@@ -62,8 +62,16 @@ namespace JessePerez
             }
             else
             {
-            Part S = dgvParts.CurrentRow.DataBoundItem as Part;
-            Inventory.FullParts.Remove(S);
+                Part S = dgvParts.CurrentRow.DataBoundItem as Part;
+                foreach (Product p in Inventory.FullProducts)
+                {
+                    if (p.AssociatedParts.Contains(S))
+                    {
+                        MessageBox.Show("Cannot delete! Part is associated with a Product.");
+                        return;
+                    };
+                }
+                Inventory.FullParts.Remove(S);
             }
         }
         private void btnModifyPart_Click(object sender, EventArgs e)
