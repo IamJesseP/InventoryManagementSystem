@@ -71,7 +71,10 @@ namespace JessePerez
                         return;
                     };
                 }
-                Inventory.FullParts.Remove(S);
+                if (ConfirmDeletion())
+                {
+                    Inventory.FullParts.Remove(S);
+                }
             }
         }
         private void btnModifyPart_Click(object sender, EventArgs e)
@@ -119,7 +122,10 @@ namespace JessePerez
             else
             {
                 Product S = dgvProducts.CurrentRow.DataBoundItem as Product;
-                Inventory.FullProducts.Remove(S);
+                if (ConfirmDeletion())
+                {
+                    Inventory.FullProducts.Remove(S);
+                }
             }
         }
         private void btnModifyProduct_Click(object sender, EventArgs e)
@@ -154,5 +160,12 @@ namespace JessePerez
             this.Close();
         }
 
+        private bool ConfirmDeletion()
+        {
+           var confirmResult = MessageBox.Show("Are you sure you want to delete this item?",
+                                     "Confirm Deletion",
+                                     MessageBoxButtons.YesNo);
+            return confirmResult == DialogResult.Yes ? true : false;
+        }
     }
 }

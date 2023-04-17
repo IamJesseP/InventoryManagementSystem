@@ -114,7 +114,10 @@ namespace JessePerez.view
             }
             else
             {
-                Inventory.CurrentProduct.AssociatedParts.RemoveAt(AssociatedIndex);
+                if (ConfirmDeletion())
+                {
+                    Inventory.CurrentProduct.AssociatedParts.RemoveAt(AssociatedIndex);
+                }
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -236,6 +239,12 @@ namespace JessePerez.view
             }
         }
         #endregion
-
+        private bool ConfirmDeletion()
+        {
+            var confirmResult = MessageBox.Show("Are you sure you want to remove this item?",
+                                      "Confirm Removal",
+                                      MessageBoxButtons.YesNo);
+            return confirmResult == DialogResult.Yes ? true : false;
+        }
     }
 }
