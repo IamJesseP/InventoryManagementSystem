@@ -43,15 +43,11 @@
             this.txtbxMax = new System.Windows.Forms.TextBox();
             this.dgvAllParts = new System.Windows.Forms.DataGridView();
             this.dgvPartsAssociated = new System.Windows.Forms.DataGridView();
-            this.lblAllParts = new System.Windows.Forms.Label();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblAllParts = new System.Windows.Forms.Label();
             this.lblPartsAssociated = new System.Windows.Forms.Label();
             this.txtbxSearch = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -59,6 +55,12 @@
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAllParts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPartsAssociated)).BeginInit();
             this.SuspendLayout();
@@ -182,7 +184,9 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Column4});
+            this.Column4,
+            this.Column9,
+            this.Column10});
             this.dgvAllParts.Location = new System.Drawing.Point(388, 67);
             this.dgvAllParts.Name = "dgvAllParts";
             this.dgvAllParts.Size = new System.Drawing.Size(444, 184);
@@ -201,35 +205,6 @@
             this.dgvPartsAssociated.Name = "dgvPartsAssociated";
             this.dgvPartsAssociated.Size = new System.Drawing.Size(444, 184);
             this.dgvPartsAssociated.TabIndex = 14;
-            // 
-            // lblAllParts
-            // 
-            this.lblAllParts.AutoSize = true;
-            this.lblAllParts.Location = new System.Drawing.Point(385, 42);
-            this.lblAllParts.Name = "lblAllParts";
-            this.lblAllParts.Size = new System.Drawing.Size(45, 13);
-            this.lblAllParts.TabIndex = 15;
-            this.lblAllParts.Text = "All Parts";
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Part ID";
-            this.Column1.Name = "Column1";
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Part Name";
-            this.Column2.Name = "Column2";
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "Inventory";
-            this.Column3.Name = "Column3";
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "Price";
-            this.Column4.Name = "Column4";
             // 
             // Column5
             // 
@@ -250,6 +225,15 @@
             // 
             this.Column8.HeaderText = "Price";
             this.Column8.Name = "Column8";
+            // 
+            // lblAllParts
+            // 
+            this.lblAllParts.AutoSize = true;
+            this.lblAllParts.Location = new System.Drawing.Point(385, 42);
+            this.lblAllParts.Name = "lblAllParts";
+            this.lblAllParts.Size = new System.Drawing.Size(45, 13);
+            this.lblAllParts.TabIndex = 15;
+            this.lblAllParts.Text = "All Parts";
             // 
             // lblPartsAssociated
             // 
@@ -318,6 +302,44 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "Id";
+            this.Column1.HeaderText = "Part ID";
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Name";
+            this.Column2.HeaderText = "Part Name";
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.DataPropertyName = "InStock";
+            this.Column3.HeaderText = "Inventory";
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.DataPropertyName = "Price";
+            this.Column4.HeaderText = "Price";
+            this.Column4.Name = "Column4";
+            // 
+            // Column9
+            // 
+            this.Column9.DataPropertyName = "Min";
+            this.Column9.HeaderText = "Min";
+            this.Column9.Name = "Column9";
+            this.Column9.Visible = false;
+            // 
+            // Column10
+            // 
+            this.Column10.DataPropertyName = "Max";
+            this.Column10.HeaderText = "Max";
+            this.Column10.Name = "Column10";
+            this.Column10.Visible = false;
+            // 
             // ModifyProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -373,10 +395,6 @@
         private System.Windows.Forms.DataGridView dgvAllParts;
         private System.Windows.Forms.DataGridView dgvPartsAssociated;
         private System.Windows.Forms.Label lblAllParts;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
@@ -388,5 +406,11 @@
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
     }
 }

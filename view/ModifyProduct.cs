@@ -27,6 +27,13 @@ namespace JessePerez.view
             txtbxPrice.Text = Inventory.CurrentProduct.Price.ToString();
             txtbxMin.Text = Inventory.CurrentProduct.Min.ToString();
             txtbxMax.Text = Inventory.CurrentProduct.Max.ToString();
+
+            //set the data source for Parts, edit props
+            dgvAllParts.DataSource = Inventory.FullParts;
+            dgvAllParts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvAllParts.ReadOnly = true;
+            dgvAllParts.MultiSelect = false;
+            dgvAllParts.AllowUserToAddRows = false;
         }
 
         #region Event Listeners
