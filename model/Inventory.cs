@@ -53,7 +53,11 @@ namespace JessePerez.model
             FullParts.Insert(CurrentIndex, part);
             FullParts.RemoveAt(CurrentIndex + 1);
         }
-
+        internal static void SwapProduct(Product product) 
+        {
+            FullProducts.Insert(CurrentIndex, product);
+            FullProducts.RemoveAt(CurrentIndex + 1);
+        }
         public static Product LookupProduct(int i)
         {   //Returns the currently selected Part object
             for (int j = 0; j < FullProducts.Count; j++)

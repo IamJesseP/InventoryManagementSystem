@@ -126,7 +126,7 @@ namespace JessePerez
             }
             else
             {
-                new AddProduct().Show();
+                new ModifyProduct().Show();
                 this.Hide();
             }
         }
