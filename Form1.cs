@@ -45,7 +45,7 @@ namespace JessePerez
         }
         #endregion
 
-
+        #region Parts Event Listeners 
         private void dgvParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Select part and part ID
@@ -57,7 +57,6 @@ namespace JessePerez
 
 
         }
-
         private void btnDeletePart_Click(object sender, EventArgs e)
         {
             if (dgvParts.CurrentRow == null || !dgvParts.CurrentRow.Selected)
@@ -70,28 +69,43 @@ namespace JessePerez
             Inventory.FullParts.Remove(S);
             }
         }
-
+        private void btnModifyPart_Click(object sender, EventArgs e)
+        {
+            if (dgvParts.CurrentRow == null || !dgvParts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected!");
+            }
+            else
+            {
+                new ModifyPart().Show();
+                this.Hide();
+            }
+        }
         private void btnAddPart_Click(object sender, EventArgs e)
         {
             new AddPart().Show();
             this.Hide();
         }
-
         private void btnSearchPart_Click(object sender, EventArgs e)
         {
 
         }
-
         private void txtbxSearchPart_TextChanged(object sender, EventArgs e)
         {
 
         }
+        #endregion
 
-        private void btnExit_Click(object sender, EventArgs e)
+        #region Products Event Listeners
+        private void dgvProducts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            this.Close();
-        }
+            //Select part and part ID
+            int indexSelected = e.RowIndex;
+            Inventory.CurrentProductID = (int)dgvProducts.Rows[indexSelected].Cells[0].Value;
 
+            //Sets the object for the currently selected Part row
+            Inventory.CurrentProduct = Inventory.LookupProduct(Inventory.CurrentProductID);
+        }
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             if (dgvProducts.CurrentRow == null || !dgvProducts.CurrentRow.Selected)
@@ -104,39 +118,37 @@ namespace JessePerez
                 Inventory.FullProducts.Remove(S);
             }
         }
-
         private void btnModifyProduct_Click(object sender, EventArgs e)
         {
-
+            if (dgvProducts.CurrentRow == null || !dgvProducts.CurrentRow.Selected)
+            {
+                MessageBox.Show("Nothing is selected! Please make a selection.");
+            }
+            else
+            {
+                new AddProduct().Show();
+                this.Hide();
+            }
         }
-
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
             new AddProduct().Show();
             this.Hide();
         }
-
         private void btnSearchProduct_Click(object sender, EventArgs e)
         {
 
         }
-
         private void txtbxSearchProduct_TextChanged(object sender, EventArgs e)
         {
 
         }
+        #endregion
 
-        private void btnModifyPart_Click(object sender, EventArgs e)
+        private void btnExit_Click(object sender, EventArgs e)
         {
-            if (dgvParts.CurrentRow == null || !dgvParts.CurrentRow.Selected)
-            {
-                MessageBox.Show("Nothing is selected!");
-            }
-            else
-            {
-                this.Hide();
-                new ModifyPart().Show();
-            }
+            this.Close();
         }
+
     }
 }

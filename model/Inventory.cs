@@ -15,27 +15,8 @@ namespace JessePerez.model
         public static Part CurrentPart { get; set;}
         public static int CurrentPartID { get; set;}
         public static int CurrentIndex { get; set; }
-
-        public static Part LookupPart(int i)
-        {   //Returns the currently selected Part object
-            for (int j = 0; j < FullParts.Count; j++)
-            {
-                if (FullParts[j].Id.Equals(i))
-                {
-                    CurrentIndex = j;
-                    return FullParts[j];
-                }
-            }
-            CurrentIndex = -1;
-            return null;
-        }
-
-        internal static void swap(Part part)
-        {
-            FullParts.Insert(CurrentIndex, part);
-            FullParts.RemoveAt(CurrentIndex + 1);
-        }
-
+        public static Product CurrentProduct { get; set;}
+        public static int CurrentProductID { get; set;}
         public static void SampleInventoryData() 
         {
             Part samplePart1 = new InHouse(1, "Screw", 12, 3, 3, 9, 2990);
@@ -54,7 +35,38 @@ namespace JessePerez.model
             sampleProduct1.AssociatedParts.Add(samplePart2);
 
         }
+        public static Part LookupPart(int i)
+        {   //Returns the currently selected Part object
+            for (int j = 0; j < FullParts.Count; j++)
+            {
+                if (FullParts[j].Id.Equals(i))
+                {
+                    CurrentIndex = j;
+                    return FullParts[j];
+                }
+            }
+            CurrentIndex = -1;
+            return null;
+        }
+        internal static void SwapPart(Part part)
+        {
+            FullParts.Insert(CurrentIndex, part);
+            FullParts.RemoveAt(CurrentIndex + 1);
+        }
 
+        public static Product LookupProduct(int i)
+        {   //Returns the currently selected Part object
+            for (int j = 0; j < FullProducts.Count; j++)
+            {
+                if (FullProducts[j].Id.Equals(i))
+                {
+                    CurrentIndex = j;
+                    return FullProducts[j];
+                }
+            }
+            CurrentIndex = -1;
+            return null;
+        }
 
     }
 }
