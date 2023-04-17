@@ -191,6 +191,7 @@
             this.dgvAllParts.Name = "dgvAllParts";
             this.dgvAllParts.Size = new System.Drawing.Size(444, 184);
             this.dgvAllParts.TabIndex = 13;
+            this.dgvAllParts.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dgvAllParts_DataBindingComplete);
             // 
             // dgvPartsAssociated
             // 

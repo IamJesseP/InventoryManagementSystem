@@ -36,6 +36,8 @@ namespace JessePerez.view
             dgvAllParts.AllowUserToAddRows = false;
         }
 
+
+
         #region Event Listeners
         private void txtbxID_TextChanged(object sender, EventArgs e)
         {
@@ -178,5 +180,10 @@ namespace JessePerez.view
             }
         }
         #endregion
+
+        private void dgvAllParts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvAllParts.ClearSelection();
+        }
     }
 }
