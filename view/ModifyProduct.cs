@@ -36,8 +36,7 @@ namespace JessePerez.view
             dgvAllParts.MultiSelect = false;
             dgvAllParts.AllowUserToAddRows = false;
 
-
-
+            
             dgvPartsAssociated.DataSource = Inventory.CurrentProduct.AssociatedParts;
             dgvPartsAssociated.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvPartsAssociated.ReadOnly = true;
@@ -129,7 +128,7 @@ namespace JessePerez.view
             if (!ValidateMinMax()) return;
             Product product = new Product(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToInt32(txtbxInventory.Text),
                 Convert.ToDecimal(txtbxPrice.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text));
-           foreach (Part p in Inventory.CurrentProduct.AssociatedParts)
+            foreach (Part p in Inventory.CurrentProduct.AssociatedParts)
             {
                 product.AssociatedParts.Add(p);
             }
@@ -138,6 +137,19 @@ namespace JessePerez.view
             this.Hide();
             Form1 f1 = new Form1();
             f1.Show();    
+        }
+        private void dgvAllParts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Select part and part ID
+            int indexSelected = e.RowIndex;
+            Inventory.CurrentPartID = (int)dgvAllParts.Rows[indexSelected].Cells[0].Value;
+
+            //Sets the object for the currently selected Part row
+            Inventory.CurrentPart = Inventory.LookupPart(Inventory.CurrentPartID);
+        }
+        private void dgvPartsAssociated_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+           AssociatedIndex = e.RowIndex;
         }
         #endregion
 
@@ -225,19 +237,5 @@ namespace JessePerez.view
         }
         #endregion
 
-        private void dgvAllParts_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            //Select part and part ID
-            int indexSelected = e.RowIndex;
-            Inventory.CurrentPartID = (int)dgvAllParts.Rows[indexSelected].Cells[0].Value;
-
-            //Sets the object for the currently selected Part row
-            Inventory.CurrentPart = Inventory.LookupPart(Inventory.CurrentPartID);
-        }
-
-        private void dgvPartsAssociated_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-           AssociatedIndex = e.RowIndex;
-        }
     }
 }

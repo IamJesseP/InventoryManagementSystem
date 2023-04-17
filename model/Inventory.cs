@@ -17,9 +17,10 @@ namespace JessePerez.model
         public static Part CurrentPart { get; set;}
         public static int CurrentPartID { get; set;}
         public static int CurrentPartIndex { get; set; }
-        public static int CurrentProductIndex { get; set; }
         public static Product CurrentProduct { get; set;}
         public static int CurrentProductID { get; set;}
+        public static int CurrentProductIndex { get; set; }
+
         public static void SampleInventoryData() 
         {
             Part samplePart1 = new InHouse(1, "Screw", 12, 3, 3, 9, 2990);
@@ -38,6 +39,7 @@ namespace JessePerez.model
             sampleProduct1.AssociatedParts.Add(samplePart2);
 
         }
+
         public static Part LookupPart(int i)
         {   //Returns the currently selected Part object
             for (int j = 0; j < FullParts.Count; j++)
@@ -56,23 +58,24 @@ namespace JessePerez.model
             FullParts.Insert(CurrentPartIndex, part);
             FullParts.RemoveAt(CurrentPartIndex + 1);
         }
-        internal static void SwapProduct(Product product) 
-        {
-                FullProducts.Insert(CurrentProductIndex, product);
-                FullProducts.RemoveAt(CurrentProductIndex + 1);
-        }
+
         public static Product LookupProduct(int i)
         {   //Returns the currently selected Product object
             for (int j = 0; j < FullProducts.Count; j++)
             {
                 if (FullProducts[j].Id.Equals(i))
                 {
-                    CurrentPartIndex = j;
+                    CurrentProductIndex = j;
                     return FullProducts[j];
                 }
             }
-            CurrentPartIndex = -1;
+            CurrentProductIndex = -1;
             return null;
+        }
+        internal static void SwapProduct(Product product) 
+        {
+                FullProducts.Insert(CurrentProductIndex, product);
+                FullProducts.RemoveAt(CurrentProductIndex + 1);
         }
     }
 }
