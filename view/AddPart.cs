@@ -36,14 +36,14 @@ namespace JessePerez
                 Part part = new InHouse(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToDecimal(txtbxPrice.Text),
                     Convert.ToInt32(txtbxInventory.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text),
                     Convert.ToInt32(txtbxDynamicVar.Text));
-                Inventory.addPart(part);
+                Inventory.AddPart(part);
             }
             else
             {
                 Part part = new OutSourced(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToDecimal(txtbxPrice.Text),
                     Convert.ToInt32(txtbxInventory.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text),
                     txtbxDynamicVar.Text);
-                Inventory.addPart(part);
+                Inventory.AddPart(part);
             }
 
             this.Hide();

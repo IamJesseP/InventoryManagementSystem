@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace JessePerez.model
 {
@@ -18,7 +19,7 @@ namespace JessePerez.model
         public int InStock { get; set; }
         public int Min { get; set; }
         public int Max { get; set; }
-
+        
 
 
         public Product(int id, string name, int instock, decimal price, int min, int max) 
@@ -33,10 +34,27 @@ namespace JessePerez.model
 
         public Product() { }  
 
-        public void addAssociatedPart(Part part)
+        public void AddAssociatedPart(Part part)
         {
             AssociatedParts.Add(part);
         }
-
+        public void RemoveAssociatedPart(int index)
+        {
+            AssociatedParts.RemoveAt(index);
+        }
+        public Part LookupAssociatedPart(int i)
+        {
+            int currentIndex;
+            for (int j = 0; j < AssociatedParts.Count; j++)
+            {
+                if (AssociatedParts[j].Id.Equals(i))
+                {
+                    currentIndex = j;
+                    return AssociatedParts[j];
+                }
+            }
+            currentIndex = -1;
+            return null;
+        }
     }
 }

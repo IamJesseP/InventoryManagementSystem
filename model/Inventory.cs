@@ -41,6 +41,10 @@ namespace JessePerez.model
 
         }
 
+        public static void AddPart(Part part)
+        {
+            FullParts.Add(part);
+        }
         public static Part LookupPart(int i)
         {   //Returns the currently selected Part object
             for (int j = 0; j < FullParts.Count; j++)
@@ -54,22 +58,22 @@ namespace JessePerez.model
             CurrentPartIndex = -1;
             return null;
         }
-        public static void updatePart(Part part)
+        public static void UpdatePart(Part part)
         {
             FullParts.Insert(CurrentPartIndex, part);
             FullParts.RemoveAt(CurrentPartIndex + 1);
         }
-        public static void removePart(Part part) 
+        public static void RemovePart(Part part) 
         { 
             FullParts.Remove(part);
         }
 
 
-        public static void addProduct(Product product)
+        public static void AddProduct(Product product)
         {
             FullProducts.Add(product);
         }
-        public static void removeProduct(Product product)
+        public static void RemoveProduct(Product product)
         {
             FullProducts.Remove(product);
         }
@@ -86,7 +90,7 @@ namespace JessePerez.model
             CurrentProductIndex = -1;
             return null;
         }
-        public static void updateProduct(Product product) 
+        public static void UpdateProduct(Product product) 
         {
                 FullProducts.Insert(CurrentProductIndex, product);
                 FullProducts.RemoveAt(CurrentProductIndex + 1);

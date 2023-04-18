@@ -76,7 +76,7 @@ namespace JessePerez
                 }
                 if (ConfirmDeletion())
                 {
-                    Inventory.removePart(S);
+                    Inventory.RemovePart(S);
                 }
             }
         }
@@ -129,7 +129,7 @@ namespace JessePerez
                 Product S = dgvProducts.CurrentRow.DataBoundItem as Product;
                 if (ConfirmDeletion())
                 {
-                    Inventory.removeProduct(S);
+                    Inventory.RemoveProduct(S);
                 }
             }
         }
