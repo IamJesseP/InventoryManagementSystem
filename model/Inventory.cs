@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using JessePerez.view;
 
 namespace JessePerez.model
 {
@@ -53,12 +54,25 @@ namespace JessePerez.model
             CurrentPartIndex = -1;
             return null;
         }
-        internal static void SwapPart(Part part)
+        public static void updatePart(Part part)
         {
             FullParts.Insert(CurrentPartIndex, part);
             FullParts.RemoveAt(CurrentPartIndex + 1);
         }
+        public static void removePart(Part part) 
+        { 
+            FullParts.Remove(part);
+        }
 
+
+        public static void addProduct(Product product)
+        {
+            FullProducts.Add(product);
+        }
+        public static void removeProduct(Product product)
+        {
+            FullProducts.Remove(product);
+        }
         public static Product LookupProduct(int i)
         {   //Returns the currently selected Product object
             for (int j = 0; j < FullProducts.Count; j++)
@@ -72,7 +86,7 @@ namespace JessePerez.model
             CurrentProductIndex = -1;
             return null;
         }
-        internal static void SwapProduct(Product product) 
+        public static void updateProduct(Product product) 
         {
                 FullProducts.Insert(CurrentProductIndex, product);
                 FullProducts.RemoveAt(CurrentProductIndex + 1);

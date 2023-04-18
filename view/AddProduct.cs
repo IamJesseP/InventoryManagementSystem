@@ -88,7 +88,7 @@ namespace JessePerez.view
                 }
                 else
                 {
-                    prod.AssociatedParts.Add(Inventory.CurrentPart);
+                    prod.addAssociatedPart(Inventory.CurrentPart);
                 }
             }
         }
@@ -102,7 +102,7 @@ namespace JessePerez.view
             {
                 if (ConfirmDeletion())
                 {
-                    prod.AssociatedParts.RemoveAt(associatedIndex);
+                    prod.removeAssociatedPart(associatedIndex);
                 }
             }
         }
@@ -119,9 +119,9 @@ namespace JessePerez.view
                 Convert.ToDecimal(txtbxPrice.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text));
             foreach (Part p in prod.AssociatedParts)
             {
-                product.AssociatedParts.Add(p);
+                product.addAssociatedPart(p);
             }
-            Inventory.FullProducts.Add(product);
+            Inventory.addProduct(product);
 
             this.Hide();
             Form1 f1 = new Form1();

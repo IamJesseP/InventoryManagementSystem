@@ -92,7 +92,7 @@ namespace JessePerez.view
                 }
                 else
                 {
-                    Inventory.CurrentProduct.AssociatedParts.Add(Inventory.CurrentPart);
+                    Inventory.CurrentProduct.addAssociatedPart(Inventory.CurrentPart);
                 }
             }
         }
@@ -106,7 +106,7 @@ namespace JessePerez.view
             {
                 if (ConfirmDeletion())
                 {
-                    Inventory.CurrentProduct.AssociatedParts.RemoveAt(associatedIndex);
+                    Inventory.CurrentProduct.removeAssociatedPart(associatedIndex);
                 }
             }
         }
@@ -123,9 +123,9 @@ namespace JessePerez.view
                 Convert.ToDecimal(txtbxPrice.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text));
             foreach (Part p in Inventory.CurrentProduct.AssociatedParts)
             {
-                product.AssociatedParts.Add(p);
+                product.addAssociatedPart(p);
             }
-            Inventory.SwapProduct(product);
+            Inventory.updateProduct(product);
             
             this.Hide();
             Form1 f1 = new Form1();
@@ -143,6 +143,7 @@ namespace JessePerez.view
         private void dgvPartsAssociated_CellClick(object sender, DataGridViewCellEventArgs e)
         {
            associatedIndex = e.RowIndex;
+           
            if (associatedIndex < 0) { return; }//Error handler for clicking header row
         }
         #endregion

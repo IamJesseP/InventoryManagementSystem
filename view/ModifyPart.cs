@@ -81,14 +81,14 @@ namespace JessePerez.view
                 Part part = new InHouse(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToDecimal(txtbxPrice.Text),
                     Convert.ToInt32(txtbxInventory.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text),
                     Convert.ToInt32(txtbxDynamicVar.Text));
-                Inventory.SwapPart(part);
+                Inventory.updatePart(part);
             }
             else
             {
                 Part part = new OutSourced(Convert.ToInt32(txtbxID.Text), txtbxName.Text, Convert.ToDecimal(txtbxPrice.Text),
                     Convert.ToInt32(txtbxInventory.Text), Convert.ToInt32(txtbxMin.Text), Convert.ToInt32(txtbxMax.Text),
                     txtbxDynamicVar.Text);
-                Inventory.SwapPart(part);
+                Inventory.updatePart(part);
             }
 
             this.Hide();

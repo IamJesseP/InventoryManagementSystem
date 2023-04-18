@@ -33,7 +33,10 @@ namespace JessePerez.model
 
         public Product() { }  
 
-
+        public void addAssociatedPart(Part part)
+        {
+            AssociatedParts.Add(part);
+        }
 
     }
 }
