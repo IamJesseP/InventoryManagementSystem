@@ -45,17 +45,6 @@ namespace JessePerez.view
             dgvPartsAssociated.AllowUserToAddRows = false;
         }
 
-        #region Clears Row Selection
-        private void dgvAllParts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dgvAllParts.ClearSelection();
-        }
-        private void dgvPartsAssociated_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            dgvPartsAssociated.ClearSelection();
-        }
-        #endregion
-
         #region Event Listeners
         private void txtbxID_TextChanged(object sender, EventArgs e)
         {
@@ -155,6 +144,17 @@ namespace JessePerez.view
         {
            associatedIndex = e.RowIndex;
            if (associatedIndex < 0) { return; }//Error handler for clicking header row
+        }
+        #endregion
+
+        #region Clears Row Selection
+        private void dgvAllParts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvAllParts.ClearSelection();
+        }
+        private void dgvPartsAssociated_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dgvPartsAssociated.ClearSelection();
         }
         #endregion
 

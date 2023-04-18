@@ -41,6 +41,7 @@ namespace JessePerez.view
             dgvPartsAssociated.AllowUserToAddRows = false;
         }
 
+        #region Event Listeners
         private void txtbxID_TextChanged(object sender, EventArgs e)
         {
             ValidateTextBox(txtbxID, "int");
@@ -99,7 +100,10 @@ namespace JessePerez.view
             }
             else
             {
-                Inventory.CurrentProduct.AssociatedParts.RemoveAt(associatedIndex);
+                if (ConfirmDeletion())
+                {
+                    prod.AssociatedParts.RemoveAt(associatedIndex);
+                }
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -137,6 +141,7 @@ namespace JessePerez.view
             associatedIndex = e.RowIndex;
             if (associatedIndex < 0) { return; }//Error handler for clicking header row
         }
+        #endregion
 
         #region Clears Row Selection
         private void dgvAllParts_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -149,6 +154,7 @@ namespace JessePerez.view
         }
         #endregion
 
+        #region Helper Methods
         #region Validation Methods
         // Validates for empty text, type of each textbox, and whether to enable btnSave
         private void ValidateTextBox(TextBox textBox, string type)
@@ -240,7 +246,13 @@ namespace JessePerez.view
             }
         }
         #endregion
-
+        private bool ConfirmDeletion()
+        {
+            var confirmResult = MessageBox.Show("Are you sure you want to remove this item?",
+                                      "Confirm Removal",
+                                      MessageBoxButtons.YesNo);
+            return confirmResult == DialogResult.Yes ? true : false;
+        }
         private void StartPartSearch()
         {
             string partSearchText = "";
@@ -284,5 +296,6 @@ namespace JessePerez.view
                 MessageBox.Show("Part not found");
             }
         }
+#endregion
     }
 }
