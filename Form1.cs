@@ -15,6 +15,7 @@ namespace JessePerez
 {
     public partial class Form1 : Form
     {
+        // Variables for Searching
         string partSearchText = "";
         string productSearchText = "";
         private Regex numberCheck = new Regex("^(0|[1-9][0-9]*)$");
@@ -103,45 +104,7 @@ namespace JessePerez
         }
         private void btnSearchPart_Click(object sender, EventArgs e)
         {
-            partSearchText = txtbxSearchPart.Text;
-            dgvParts.ClearSelection();
-
-            //Search part by ID
-            if(numberCheck.IsMatch(partSearchText) == true)
-            {  
-                if(int.Parse(partSearchText) > Inventory.FullParts.Count)
-                {
-                    MessageBox.Show("Product not found");
-                }
-                else
-                {
-                    foreach (Part p in Inventory.FullParts)
-                    {
-                        if(partSearchText == p.Id.ToString())
-                        {
-                            int index = p.Id - 1;
-                            dgvParts.Rows[index].Selected = true;
-                            txtbxSearchPart.Text = "";
-                            return;
-                        }
-                    }
-                }
-            }
-            //Search part by name
-            else
-            {
-                foreach (Part p in Inventory.FullParts)
-                {
-                    if (p.Name.ToLower() == partSearchText.ToLower())
-                    {
-                        int index = p.Id - 1;
-                        dgvParts.Rows[index].Selected = true;
-                        txtbxSearchPart.Text = "";
-                        return;
-                    }
-                }
-                MessageBox.Show("Product not found");
-            }
+            StartPartSearch();
         }
         private void txtbxSearchPart_TextChanged(object sender, EventArgs e)
         {
@@ -194,7 +157,7 @@ namespace JessePerez
         }
         private void btnSearchProduct_Click(object sender, EventArgs e)
         {
-
+            StartProductSearch();
         }
         private void txtbxSearchProduct_TextChanged(object sender, EventArgs e)
         {
@@ -207,6 +170,89 @@ namespace JessePerez
             this.Close();
         }
 
+        #region Helper methods
+        private void StartPartSearch()
+        {
+            partSearchText = txtbxSearchPart.Text;
+            dgvParts.ClearSelection();
+            //Search part by ID
+            if (numberCheck.IsMatch(partSearchText) == true)
+            {
+                if (int.Parse(partSearchText) > Inventory.FullParts.Count)
+                {
+                    MessageBox.Show("Part not found");
+                }
+                else
+                {
+                    foreach (Part p in Inventory.FullParts)
+                    {
+                        if (partSearchText == p.Id.ToString())
+                        {
+                            int index = p.Id - 1;
+                            dgvParts.Rows[index].Selected = true;
+                            txtbxSearchPart.Text = "";
+                            return;
+                        }
+                    }
+                }
+            }
+            //Search part by name
+            else
+            {
+                foreach (Part p in Inventory.FullParts)
+                {
+                    if (p.Name.ToLower() == partSearchText.ToLower())
+                    {
+                        int index = p.Id - 1;
+                        dgvParts.Rows[index].Selected = true;
+                        txtbxSearchPart.Text = "";
+                        return;
+                    }
+                }
+                MessageBox.Show("Part not found");
+            }
+        }
+        private void StartProductSearch()
+        {
+            productSearchText = txtbxSearchProduct.Text;
+            dgvProducts.ClearSelection();
+            //Search product by ID
+            if (numberCheck.IsMatch(productSearchText) == true)
+            {
+                if (int.Parse(productSearchText) > Inventory.FullProducts.Count)
+                {
+                    MessageBox.Show("Product not found");
+                }
+                else
+                {
+                    foreach (Product p in Inventory.FullProducts)
+                    {
+                        if (productSearchText == p.Id.ToString())
+                        {
+                            int index = p.Id - 1;
+                            dgvProducts.Rows[index].Selected = true;
+                            txtbxSearchProduct.Text = "";
+                            return;
+                        }
+                    }
+                }
+            }
+            //Search product by name
+            else
+            {
+                foreach (Product p in Inventory.FullProducts)
+                {
+                    if (p.Name.ToLower() == productSearchText.ToLower())
+                    {
+                        int index = p.Id - 1;
+                        dgvProducts.Rows[index].Selected = true;
+                        txtbxSearchProduct.Text = "";
+                        return;
+                    }
+                }
+                MessageBox.Show("Product not found");
+            }
+        }
         private bool ConfirmDeletion()
         {
            var confirmResult = MessageBox.Show("Are you sure you want to delete this item?",
@@ -214,5 +260,6 @@ namespace JessePerez
                                      MessageBoxButtons.YesNo);
             return confirmResult == DialogResult.Yes ? true : false;
         }
+        #endregion
     }
 }
