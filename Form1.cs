@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JessePerez.model;
@@ -14,6 +15,10 @@ namespace JessePerez
 {
     public partial class Form1 : Form
     {
+        string partSearchText = "";
+        string productSearchText = "";
+        private Regex numberCheck = new Regex("^(0|[1-9][0-9]*)$");
+
         public Form1()
         {
             InitializeComponent();
@@ -23,7 +28,8 @@ namespace JessePerez
             dgvParts.ReadOnly = true;
             dgvParts.MultiSelect = false;
             dgvParts.AllowUserToAddRows = false;
-
+            
+           
             //set the data source for Products, edit props
             dgvProducts.DataSource = Inventory.FullProducts;
             dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -96,10 +102,49 @@ namespace JessePerez
         }
         private void btnSearchPart_Click(object sender, EventArgs e)
         {
+            partSearchText = txtbxSearchPart.Text;
+            dgvParts.ClearSelection();
 
+            //Search part by ID
+            if(numberCheck.IsMatch(partSearchText) == true)
+            {  
+                if(int.Parse(partSearchText) > Inventory.FullParts.Count)
+                {
+                    MessageBox.Show("Product not found");
+                }
+                else
+                {
+                    foreach (Part p in Inventory.FullParts)
+                    {
+                        if(partSearchText == p.Id.ToString())
+                        {
+                            int index = p.Id - 1;
+                            dgvParts.Rows[index].Selected = true;
+                            txtbxSearchPart.Text = "";
+                            return;
+                        }
+                    }
+                }
+            }
+            //Search part by name
+            else
+            {
+                foreach (Part p in Inventory.FullParts)
+                {
+                    if (p.Name.ToLower() == partSearchText.ToLower())
+                    {
+                        int index = p.Id - 1;
+                        dgvParts.Rows[index].Selected = true;
+                        txtbxSearchPart.Text = "";
+                        return;
+                    }
+                }
+                MessageBox.Show("Product not found");
+            }
         }
         private void txtbxSearchPart_TextChanged(object sender, EventArgs e)
         {
+            
 
         }
         #endregion
