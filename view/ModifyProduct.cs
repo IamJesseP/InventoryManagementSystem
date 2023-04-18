@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using JessePerez.model;
@@ -86,7 +87,7 @@ namespace JessePerez.view
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
+            StartPartSearch();
         }
         private void btnAdd_Click(object sender, EventArgs e)
         {
@@ -156,6 +157,8 @@ namespace JessePerez.view
            if (associatedIndex < 0) { return; }//Error handler for clicking header row
         }
         #endregion
+
+        #region Helper Methods
 
         #region Validation Methods
         // Validates for empty text, type of each textbox, and whether to enable btnSave
@@ -247,5 +250,49 @@ namespace JessePerez.view
                                       MessageBoxButtons.YesNo);
             return confirmResult == DialogResult.Yes ? true : false;
         }
+        private void StartPartSearch()
+        {
+            string partSearchText = "";
+            Regex numberCheck = new Regex("^(0|[1-9][0-9]*)$");
+            partSearchText = txtbxSearch.Text;
+            dgvAllParts.ClearSelection();
+            //Search part by ID
+            if (numberCheck.IsMatch(partSearchText) == true)
+            {
+                if (int.Parse(partSearchText) > Inventory.FullParts.Count)
+                {
+                    MessageBox.Show("Part not found");
+                }
+                else
+                {
+                    foreach (Part p in Inventory.FullParts)
+                    {
+                        if (partSearchText == p.Id.ToString())
+                        {
+                            int index = p.Id - 1;
+                            dgvAllParts.Rows[index].Selected = true;
+                            txtbxSearch.Text = "";
+                            return;
+                        }
+                    }
+                }
+            }
+            //Search part by name
+            else
+            {
+                foreach (Part p in Inventory.FullParts)
+                {
+                    if (p.Name.ToLower() == partSearchText.ToLower())
+                    {
+                        int index = p.Id - 1;
+                        dgvAllParts.Rows[index].Selected = true;
+                        txtbxSearch.Text = "";
+                        return;
+                    }
+                }
+                MessageBox.Show("Part not found");
+            }
+        }
+        #endregion
     }
 }

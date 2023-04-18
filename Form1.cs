@@ -15,11 +15,6 @@ namespace JessePerez
 {
     public partial class Form1 : Form
     {
-        // Variables for Searching
-        string partSearchText = "";
-        string productSearchText = "";
-        private Regex numberCheck = new Regex("^(0|[1-9][0-9]*)$");
-
         public Form1()
         {
             InitializeComponent();
@@ -173,6 +168,8 @@ namespace JessePerez
         #region Helper methods
         private void StartPartSearch()
         {
+            string partSearchText = "";
+            Regex numberCheck = new Regex("^(0|[1-9][0-9]*)$");
             partSearchText = txtbxSearchPart.Text;
             dgvParts.ClearSelection();
             //Search part by ID
@@ -214,6 +211,8 @@ namespace JessePerez
         }
         private void StartProductSearch()
         {
+            string productSearchText = "";
+            Regex numberCheck = new Regex("^(0|[1-9][0-9]*)$");
             productSearchText = txtbxSearchProduct.Text;
             dgvProducts.ClearSelection();
             //Search product by ID
