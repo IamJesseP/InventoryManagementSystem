@@ -124,11 +124,11 @@ namespace JessePerez.view
         }
         private void dgvAllParts_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Select part and part ID
             int indexSelected = e.RowIndex;
-            Inventory.CurrentPartID = (int)dgvAllParts.Rows[indexSelected].Cells[0].Value;
+            if (indexSelected < 0) { return; }//Error handler for clicking header row
 
             //Sets the object for the currently selected Part row
+            Inventory.CurrentPartID = (int)dgvAllParts.Rows[indexSelected].Cells[0].Value;
             Inventory.CurrentPart = Inventory.LookupPart(Inventory.CurrentPartID);
         }
         private void dgvPartsAssociated_CellClick(object sender, DataGridViewCellEventArgs e)
