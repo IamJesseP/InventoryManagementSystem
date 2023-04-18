@@ -13,7 +13,7 @@ namespace JessePerez.view
 {
     public partial class AddProduct : Form
     {
-        private static int AssociatedIndex = -1;
+        private static int associatedIndex = -1;
 
         Product prod = new Product();
         public AddProduct()
@@ -98,7 +98,7 @@ namespace JessePerez.view
             }
             else
             {
-                Inventory.CurrentProduct.AssociatedParts.RemoveAt(AssociatedIndex);
+                Inventory.CurrentProduct.AssociatedParts.RemoveAt(associatedIndex);
             }
         }
         private void btnCancel_Click(object sender, EventArgs e)
@@ -133,7 +133,8 @@ namespace JessePerez.view
         }
         private void dgvPartsAssociated_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            AssociatedIndex = e.RowIndex;
+            associatedIndex = e.RowIndex;
+            if (associatedIndex < 0) { return; }//Error handler for clicking header row
         }
 
         #region Clears Row Selection
