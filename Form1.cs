@@ -67,7 +67,7 @@ namespace JessePerez
             {
                 Part S = dgvParts.CurrentRow.DataBoundItem as Part;
                 foreach (Product p in Inventory.FullProducts)
-                {
+                {   //Exception control if Part has relation to products
                     if (p.AssociatedParts.Contains(S))
                     {
                         MessageBox.Show("Cannot delete! Part is associated with a Product.");
@@ -127,6 +127,14 @@ namespace JessePerez
             else
             {
                 Product S = dgvProducts.CurrentRow.DataBoundItem as Product;
+                foreach (Product p in Inventory.FullProducts)
+                {   //Exception control if Product has relation to parts
+                    if (p.AssociatedParts.Count > 0)
+                    {
+                        MessageBox.Show("Cannot delete! Product is associated with parts.");
+                        return;
+                    };
+                }
                 if (ConfirmDeletion())
                 {
                     Inventory.RemoveProduct(S);
