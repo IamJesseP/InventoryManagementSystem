@@ -2,7 +2,7 @@
 A Windows Forms Application (.NET Framework) inventory management application written in C#. The program executes everything in memory and does not use a database. 
 Using the buttons beneath the appropriate tables, users can add, delete, and modify parts and products. The Delete and Search functions are the same for both Products and Parts. 
 
-An installable application of this project can be found [here](https://github.com/IamJesseP/InventoryManagementSystem/blob/main/Install/InvMngSys.application) (Download as raw file!)
+**An installable application of this project can be found [here](https://github.com/IamJesseP/InventoryManagementSystem/blob/main/Install/InvMngSys.application) <ins>(Download as raw file!)</ins>**
 
 ![](https://github.com/IamJesseP/InventoryManagementSystem/blob/main/ionvmg.gif)
 
