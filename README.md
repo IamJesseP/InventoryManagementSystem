@@ -4,6 +4,8 @@ Using the buttons beneath the appropriate tables, users can add, delete, and mod
 
 An installable application of this project can be found [here](https://github.com/IamJesseP/InventoryManagementSystem/blob/main/Install/InvMngSys.application) (Download as raw file!)
 
+![](https://github.com/IamJesseP/InventoryManagementSystem/blob/main/ionvmg.gif)
+
 ### Technologies
 * C#
 * Windows Form Application
