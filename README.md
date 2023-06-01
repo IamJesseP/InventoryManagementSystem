@@ -39,14 +39,16 @@ Using the buttons beneath the appropriate tables, users can add, delete, and mod
 * buttons for “Save,” “Cancel,” “Add” part, and “Delete” part 
 * text boxes for ID, name, inventory level, price, and max and min values
 * labels for ID, name, inventory level, price, max and min values, and the application 
-* a grid view for all parts • a grid view for parts associated with the product 
+* a grid view for all parts 
+* a grid view for parts associated with the product 
 * a “Search” button and a text field with an associated list for displaying the results of the search
 
 ### A modify product form, with fields that populate with data from an existing product, with: 
 * buttons for “Save,” “Cancel,” “Add” part, and “Delete” part 
 * text boxes for ID, name, inventory level, price, and max and min values 
 * labels for ID, name, inventory level, price, max and min values, and the application “all candidate parts”
-* a grid view for parts associated with the product • a “Search” button and a text box with associated list for displaying the results of the search
+* a grid view for parts associated with the product 
+* a “Search” button and a text box with associated list for displaying the results of the search
 
 
 ## What I learned
@@ -58,6 +60,7 @@ Using the buttons beneath the appropriate tables, users can add, delete, and mod
 * OOP principles like Encapsulation, Data Abstraction, Polymorphism and Inheritance
 * Improved understanding code structure and readability
 
-
+### Academic
+Course: C968 Software I at WGU
 
 
